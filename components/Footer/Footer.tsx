@@ -14,7 +14,7 @@ export default function Footer() {
           <div className={styles.brand}>
             <div className={styles.logo}>
               <Image
-                src="/logos/VDS Tecnologia - CUT.png"
+                src="/logos/VDS AI Orange.png"
                 alt="VDS Tecnologia"
                 width={160}
                 height={55}

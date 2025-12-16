@@ -1,37 +1,41 @@
 .technology {
   position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
   padding: var(--spacing-3xl) 0;
   background: 
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 50px,
-      rgba(0, 81, 255, 0.08) 50px,
-      rgba(0, 81, 255, 0.08) 51px
+      transparent 80px,
+      rgba(255, 107, 53, 0.06) 80px,
+      rgba(255, 107, 53, 0.06) 81px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 50px,
-      rgba(139, 92, 246, 0.06) 50px,
-      rgba(139, 92, 246, 0.06) 51px
+      transparent 80px,
+      rgba(0, 102, 255, 0.06) 80px,
+      rgba(0, 102, 255, 0.06) 81px
     ),
-    radial-gradient(ellipse 1400px 900px at 70% 50%, rgba(0, 81, 255, 0.15) 0%, transparent 60%),
-    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 50%, var(--color-bg-primary) 100%);
+    radial-gradient(ellipse 1400px 900px at 30% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 70%),
+    var(--color-bg-secondary);
   z-index: 1;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .technology::before {
   content: '';
   position: absolute;
-  bottom: -30%;
-  left: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  bottom: -20%;
+  right: -15%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
   border-radius: 50%;
-  animation: float 25s ease-in-out infinite reverse;
+  animation: floatOrb 30s ease-in-out infinite reverse;
   pointer-events: none;
 }
 
@@ -55,17 +59,20 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
 }
 
 .subtitle {
@@ -99,10 +106,12 @@
   padding: var(--spacing-xl);
   text-align: center;
   transition: all var(--transition-normal);
-  min-height: 150px;
+  min-height: 180px;
   opacity: 0;
   transform: scale(0.9);
   animation: scaleIn 0.6s ease-out forwards;
+  background: rgba(26, 26, 26, 0.5);
+  border: 2px solid rgba(255, 107, 53, 0.2);
 }
 
 .techCard.visible {
@@ -111,38 +120,54 @@
 }
 
 .techCard:hover {
-  transform: translateY(-12px) scale(1.08) rotate(-2deg);
-  box-shadow: var(--shadow-neon-lg), 0 20px 60px rgba(0, 81, 255, 0.3);
+  transform: translateY(-15px) scale(1.1) rotate(-3deg);
+  box-shadow: var(--glow-orange-strong), 0 25px 70px rgba(255, 107, 53, 0.4);
   border-color: var(--color-primary);
+  background: rgba(26, 26, 26, 0.8);
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   color: var(--color-primary);
   transition: all var(--transition-normal);
-  filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.3));
+  filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.5));
 }
 
 .techCard:hover .icon {
-  transform: scale(1.4) rotate(10deg);
-  filter: drop-shadow(0 0 20px rgba(0, 81, 255, 0.6));
-  color: var(--color-accent);
+  transform: scale(1.5) rotate(15deg);
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.9));
+  color: var(--color-primary-hover);
 }
 
 .techName {
-  font-size: var(--font-size-base);
-  font-weight: 600;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
   color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
   .technology {
     padding: var(--spacing-2xl) 0;
+    min-height: auto;
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .techCard {
+    min-height: 140px;
+    padding: var(--spacing-md);
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
   }
 }
 

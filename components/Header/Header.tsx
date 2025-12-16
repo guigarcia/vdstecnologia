@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import styles from './Header.module.css';
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -21,12 +21,12 @@ export default function Header() {
   }, []);
 
   const menuItems = [
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Serviços', href: '#servicos' },
-    { label: 'Tecnologia', href: '#tecnologia' },
-    { label: 'Parceiros', href: '#parceiros' },
-    { label: 'Processo', href: '#processo' },
-    { label: 'Contato', href: '#contato' },
+    { label: t('menu.about'), href: '#sobre' },
+    { label: t('menu.services'), href: '#servicos' },
+    { label: t('menu.technology'), href: '#tecnologia' },
+    { label: t('menu.partners'), href: '#parceiros' },
+    { label: t('menu.process'), href: '#processo' },
+    { label: t('menu.contact'), href: '#contato' },
   ];
 
   const handleMenuClick = (href: string) => {
@@ -42,7 +42,7 @@ export default function Header() {
       <div className={styles.container}>
         <div className={styles.logo}>
           <Image
-            src="/logos/VDS Tecnologia - CUT.png"
+            src="/logos/VDS AI Orange.png"
             alt="VDS Tecnologia"
             width={140}
             height={50}
@@ -69,15 +69,12 @@ export default function Header() {
 
         <div className={styles.actions}>
           <button
-            onClick={toggleTheme}
-            className={styles.themeToggle}
-            aria-label="Toggle theme"
+            onClick={toggleLanguage}
+            className={styles.languageToggle}
+            aria-label="Toggle language"
           >
-            {theme === 'light' ? (
-              <Moon size={20} />
-            ) : (
-              <Sun size={20} />
-            )}
+            <Globe size={18} />
+            <span className={styles.langText}>{language.toUpperCase()}</span>
           </button>
 
           <button

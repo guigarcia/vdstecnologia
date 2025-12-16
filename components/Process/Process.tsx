@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Search, Code, CheckCircle, Cloud } from 'lucide-react';
 import Card from '../Card/Card';
+import ScanLines from '../ScanLines/ScanLines';
 import { processSteps } from '@/lib/constants';
 import styles from './Process.module.css';
 
@@ -42,6 +43,7 @@ export default function Process() {
 
   return (
     <section id="processo" ref={sectionRef} className={styles.process}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>

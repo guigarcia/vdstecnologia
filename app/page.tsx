@@ -3,6 +3,8 @@ import Hero from '@/components/Hero/Hero';
 import About from '@/components/About/About';
 import Services from '@/components/Services/Services';
 import Technology from '@/components/Technology/Technology';
+import HackerTerminal from '@/components/HackerTerminal/HackerTerminal';
+import AIStack from '@/components/AIStack/AIStack';
 import Partners from '@/components/Partners/Partners';
 import Process from '@/components/Process/Process';
 import Benefits from '@/components/Benefits/Benefits';
@@ -19,6 +21,8 @@ export default function Home() {
       <About />
       <Services />
       <Technology />
+      <HackerTerminal />
+      <AIStack />
       <Partners />
       <Process />
       <Benefits />

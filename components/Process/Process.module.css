@@ -1,12 +1,16 @@
 .process {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding: var(--spacing-3xl) 0;
   background: 
-    linear-gradient(180deg, rgba(0, 81, 255, 0.12) 0%, transparent 30%, transparent 70%, rgba(139, 92, 246, 0.12) 100%),
-    linear-gradient(45deg, transparent 30%, rgba(0, 81, 255, 0.05) 50%, transparent 70%),
+    linear-gradient(180deg, rgba(255, 107, 53, 0.1) 0%, transparent 30%, transparent 70%, rgba(0, 102, 255, 0.1) 100%),
+    linear-gradient(45deg, transparent 30%, rgba(0, 245, 255, 0.05) 50%, transparent 70%),
     var(--color-bg-secondary);
   z-index: 1;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .process::before {
@@ -19,18 +23,13 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 81, 255, 0.05),
+    rgba(255, 107, 53, 0.08),
     transparent,
-    rgba(139, 92, 246, 0.05),
+    rgba(0, 102, 255, 0.08),
     transparent
   );
-  animation: shimmer 10s ease-in-out infinite;
+  animation: hologramShimmer 15s ease-in-out infinite;
   pointer-events: none;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(50%); }
 }
 
 .container {
@@ -53,17 +52,20 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
 }
 
 .subtitle {
@@ -89,9 +91,10 @@
   left: 30px;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: var(--gradient-title);
-  opacity: 0.3;
+  width: 3px;
+  background: var(--gradient-primary);
+  box-shadow: var(--glow-orange);
+  opacity: 0.8;
 }
 
 .timelineItem {
@@ -115,21 +118,33 @@
   align-items: center;
   gap: var(--spacing-xs);
   flex-shrink: 0;
-  z-index: 2;
+  z-index: 10;
 }
 
 .markerNumber {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   border-radius: var(--radius-full);
   color: white;
-  font-weight: 700;
-  font-size: var(--font-size-lg);
-  box-shadow: var(--shadow-neon-md);
+  font-weight: 900;
+  font-size: var(--font-size-2xl);
+  box-shadow: var(--glow-orange-strong);
+  border: 3px solid var(--color-primary);
+  position: relative;
+}
+
+.markerNumber::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-primary);
+  opacity: 0.3;
+  animation: neonPulse 2s ease-in-out infinite;
 }
 
 .markerIcon {
@@ -161,10 +176,11 @@
 @media (max-width: 768px) {
   .process {
     padding: var(--spacing-2xl) 0;
+    min-height: auto;
   }
 
   .timeline::before {
-    left: 20px;
+    left: 25px;
   }
 
   .timelineItem {
@@ -173,13 +189,14 @@
   }
 
   .markerNumber {
-    width: 50px;
-    height: 50px;
-    font-size: var(--font-size-base);
+    width: 60px;
+    height: 60px;
+    font-size: var(--font-size-xl);
   }
 
   .stepCard {
     margin-top: 0;
+    padding: var(--spacing-md);
   }
 }
 

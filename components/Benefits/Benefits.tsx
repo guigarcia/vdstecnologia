@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Zap, Lightbulb, Award, TrendingUp } from 'lucide-react';
 import Card from '../Card/Card';
+import ScanLines from '../ScanLines/ScanLines';
 import { benefits } from '@/lib/constants';
 import styles from './Benefits.module.css';
 
@@ -42,6 +43,7 @@ export default function Benefits() {
 
   return (
     <section id="beneficios" ref={sectionRef} className={styles.benefits}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>

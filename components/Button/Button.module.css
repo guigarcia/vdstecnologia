@@ -18,12 +18,15 @@
 
 /* Variants */
 .primary {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   color: white;
-  border: none;
-  box-shadow: var(--shadow-neon-md);
+  border: 2px solid var(--color-primary);
+  box-shadow: var(--glow-orange);
   position: relative;
   overflow: hidden;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .primary::before {
@@ -34,45 +37,68 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
 }
 
+.primary::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  opacity: 0;
+  filter: blur(10px);
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
 .primary:hover:not(:disabled)::before {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+}
+
+.primary:hover:not(:disabled)::after {
+  opacity: 1;
 }
 
 .primary:hover:not(:disabled) {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: var(--shadow-neon-lg), 0 0 30px rgba(0, 81, 255, 0.4);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--glow-orange-strong);
+  border-color: var(--color-primary-hover);
 }
 
 .secondary {
-  background: var(--color-bg-glass);
+  background: var(--glass-bg);
   color: var(--color-text-primary);
-  border: 1px solid var(--glass-border);
+  border: 2px solid var(--glass-border-secondary);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .secondary:hover:not(:disabled) {
-  background: var(--color-bg-secondary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background: rgba(0, 102, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-blue);
+  border-color: var(--color-secondary);
 }
 
 .outline {
   background: transparent;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .outline:hover:not(:disabled) {
   background: var(--color-primary);
   color: white;
-  box-shadow: var(--glow-primary);
+  box-shadow: var(--glow-orange-strong);
+  transform: translateY(-3px);
 }
 
 /* Sizes */

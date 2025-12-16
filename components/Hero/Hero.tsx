@@ -2,11 +2,15 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Button from '../Button/Button';
 import ParticleSystem from '../ParticleSystem/ParticleSystem';
+import GlitchEffect from '../GlitchEffect/GlitchEffect';
+import ScanLines from '../ScanLines/ScanLines';
 import styles from './Hero.module.css';
 
 export default function Hero() {
+  const { t } = useLanguage();
   const handleContactClick = () => {
     const element = document.querySelector('#contato');
     if (element) {
@@ -16,22 +20,24 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
+      <ScanLines />
       <ParticleSystem />
       <div className={styles.content}>
         <div className={styles.textContent}>
           <h1 className={styles.title}>
-            <span className={styles.titleGradient}>
-              Desenvolvimento com IA
-            </span>
-            <br />
+            <GlitchEffect intensity="medium">
+              <span className={styles.titleGradient}>
+                {t('hero.title.main')}
+                <br />
+                {t('hero.title.sub')}
+              </span>
+            </GlitchEffect>
             <span className={styles.titleSubtext}>
-              como parceiro estratégico
+              {t('hero.subtitle.main')}
             </span>
           </h1>
           <p className={styles.subtitle}>
-            Transformamos ideias em soluções tecnológicas inovadoras, 
-            utilizando inteligência artificial para acelerar o desenvolvimento 
-            e entregar resultados excepcionais.
+            {t('hero.description')}
           </p>
           <div className={styles.ctaGroup}>
             <Button
@@ -40,7 +46,7 @@ export default function Hero() {
               onClick={handleContactClick}
               className={styles.ctaButton}
             >
-              Fale Conosco
+              {t('hero.cta')}
               <ArrowRight size={20} />
             </Button>
           </div>

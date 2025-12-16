@@ -1,8 +1,8 @@
 .footer {
-  background: linear-gradient(180deg, rgba(0, 81, 255, 0.05) 0%, var(--color-bg-secondary) 100%);
-  border-top: 1px solid var(--glass-border);
+  background: linear-gradient(180deg, rgba(255, 107, 53, 0.08) 0%, var(--color-bg-secondary) 100%);
+  border-top: 2px solid rgba(255, 107, 53, 0.3);
   padding: var(--spacing-2xl) 0 var(--spacing-lg);
-  margin-top: var(--spacing-3xl);
+  margin-top: 0;
   position: relative;
 }
 
@@ -12,15 +12,17 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: var(--gradient-title);
-  opacity: 0.3;
+  height: 2px;
+  background: var(--gradient-primary);
+  box-shadow: var(--glow-orange);
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+  position: relative;
+  z-index: 3;
 }
 
 .content {

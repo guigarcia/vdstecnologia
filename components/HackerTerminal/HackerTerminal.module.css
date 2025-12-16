@@ -1,0 +1,188 @@
+.hackerTerminal {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: #000000;
+  overflow: hidden;
+  z-index: 1;
+  scroll-snap-align: start;
+}
+
+.matrixCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.scanLinesIntense {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 107, 53, 0.08) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 102, 255, 0.06) 3px,
+    transparent 4px
+  );
+  animation: scanLineScroll 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glitchOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(0deg, transparent 0%, rgba(255, 107, 53, 0.02) 50%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, rgba(0, 102, 255, 0.02) 50%, transparent 100%);
+  animation: glitchAnimation 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+.terminal {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    var(--glow-orange-strong),
+    inset 0 0 60px rgba(255, 107, 53, 0.1);
+  overflow: hidden;
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255, 107, 53, 0.1);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.terminalTitle {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  text-shadow: var(--glow-text);
+}
+
+.terminalBody {
+  padding: var(--spacing-xl);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.terminalOutput {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.prompt {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  text-shadow: var(--glow-text);
+}
+
+.terminalText {
+  color: var(--color-accent);
+  text-shadow: var(--glow-cyan);
+}
+
+.cursor {
+  display: inline-block;
+  width: 12px;
+  height: 24px;
+  background: var(--color-primary);
+  animation: blink 1s step-end infinite;
+  box-shadow: var(--glow-orange);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.stats {
+  display: flex;
+  gap: var(--spacing-3xl);
+  justify-content: center;
+  width: 100%;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.statValue {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.6));
+  animation: neonGlow 2s ease-in-out infinite alternate;
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  
+  .terminal {
+    max-width: 100%;
+  }
+}
+

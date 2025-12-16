@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import LogoCloud from '../LogoCloud/LogoCloud';
+import ScanLines from '../ScanLines/ScanLines';
 import { partners } from '@/lib/constants';
 import styles from './Partners.module.css';
 
@@ -34,6 +35,7 @@ export default function Partners() {
 
   return (
     <section id="parceiros" ref={sectionRef} className={styles.partners}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>
@@ -61,13 +63,6 @@ export default function Partners() {
             <LogoCloud logos={partners.specialties} columns={2} />
           </div>
 
-          <div className={`${styles.section} ${isVisible ? styles.visible : ''}`}>
-            <h3 className={styles.sectionTitle}>Parcerias Oficiais</h3>
-            <p className={styles.sectionDescription}>
-              Parceiros estratégicos em desenvolvimento
-            </p>
-            <LogoCloud logos={partners.official} columns={1} />
-          </div>
         </div>
       </div>
     </section>

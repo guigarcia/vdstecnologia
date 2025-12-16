@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Send, Mail, Phone } from 'lucide-react';
 import Button from '../Button/Button';
 import Card from '../Card/Card';
+import ScanLines from '../ScanLines/ScanLines';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -62,6 +63,7 @@ export default function Contact() {
 
   return (
     <section id="contato" ref={sectionRef} className={styles.contact}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>

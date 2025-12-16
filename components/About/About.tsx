@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Cloud, Database, Sparkles } from 'lucide-react';
 import LogoCloud from '../LogoCloud/LogoCloud';
+import ScanLines from '../ScanLines/ScanLines';
 import { partners } from '@/lib/constants';
 import styles from './About.module.css';
 
@@ -36,11 +37,11 @@ export default function About() {
   const allPartners = [
     ...partners.clouds,
     ...partners.specialties,
-    ...partners.official,
   ];
 
   return (
     <section id="sobre" ref={sectionRef} className={styles.about}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>

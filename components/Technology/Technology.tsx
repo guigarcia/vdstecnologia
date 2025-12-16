@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Code, Atom, FileCode, Server, FileJson, Brain } from 'lucide-react';
 import Card from '../Card/Card';
+import ScanLines from '../ScanLines/ScanLines';
 import { technologies } from '@/lib/constants';
 import styles from './Technology.module.css';
 
@@ -44,6 +45,7 @@ export default function Technology() {
 
   return (
     <section id="tecnologia" ref={sectionRef} className={styles.technology}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>

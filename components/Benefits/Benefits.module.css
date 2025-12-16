@@ -1,19 +1,17 @@
 .benefits {
   position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
   padding: var(--spacing-3xl) 0;
   background: 
-    radial-gradient(ellipse 1200px 800px at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%),
-    radial-gradient(circle 800px at 10% 20%, rgba(0, 81, 255, 0.12) 0%, transparent 60%),
-    radial-gradient(circle 600px at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 60%),
-    repeating-conic-gradient(
-      from 0deg at 50% 50%,
-      transparent 0deg,
-      rgba(0, 81, 255, 0.02) 15deg,
-      transparent 30deg
-    ),
-    var(--color-bg-secondary);
+    radial-gradient(ellipse 1400px 900px at 50% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(circle 900px at 10% 20%, rgba(255, 107, 53, 0.12) 0%, transparent 70%),
+    radial-gradient(circle 700px at 90% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 70%),
+    var(--color-bg-primary);
   z-index: 1;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .container {
@@ -36,17 +34,20 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
 }
 
 .subtitle {
@@ -97,29 +98,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  background: var(--gradient-title);
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-secondary);
   border-radius: var(--radius-2xl);
-  margin-bottom: var(--spacing-md);
-  box-shadow: 0 10px 30px rgba(0, 81, 255, 0.3);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--glow-blue);
   transition: all var(--transition-normal);
   position: relative;
+  border: 3px solid var(--color-secondary);
 }
 
 .iconWrapper::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+  inset: -3px;
+  background: var(--gradient-secondary);
   border-radius: var(--radius-2xl);
   opacity: 0;
+  filter: blur(20px);
+  z-index: -1;
   transition: opacity var(--transition-normal);
 }
 
 .benefitCard:hover .iconWrapper {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 20px 50px rgba(0, 81, 255, 0.5);
+  transform: scale(1.2) rotate(8deg);
+  box-shadow: var(--glow-blue-strong);
 }
 
 .benefitCard:hover .iconWrapper::after {
@@ -128,13 +132,14 @@
 
 .icon {
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   transition: all var(--transition-normal);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .benefitCard:hover .icon {
-  transform: scale(1.2);
+  transform: scale(1.2) rotate(-10deg);
 }
 
 .benefitTitle {
@@ -153,10 +158,21 @@
 @media (max-width: 768px) {
   .benefits {
     padding: var(--spacing-2xl) 0;
+    min-height: auto;
   }
 
   .grid {
     grid-template-columns: 1fr;
+  }
+  
+  .iconWrapper {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
   }
 }
 

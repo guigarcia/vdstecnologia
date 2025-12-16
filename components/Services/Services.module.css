@@ -1,24 +1,28 @@
 .services {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding: var(--spacing-3xl) 0;
   background: 
-    linear-gradient(135deg, rgba(0, 81, 255, 0.15) 0%, rgba(139, 92, 246, 0.12) 50%, rgba(0, 81, 255, 0.15) 100%),
-    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
-    var(--color-bg-secondary);
+    radial-gradient(ellipse 1400px 900px at 50% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 800px 600px at 20% 80%, rgba(255, 107, 53, 0.12) 0%, transparent 70%),
+    var(--color-bg-primary);
   z-index: 1;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .services::after {
   content: '';
   position: absolute;
-  top: -50%;
+  top: -30%;
   right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 81, 255, 0.15) 0%, transparent 70%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
   border-radius: 50%;
-  animation: float 20s ease-in-out infinite;
+  animation: floatOrb 25s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -42,17 +46,20 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
 }
 
 .subtitle {
@@ -103,31 +110,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  background: var(--gradient-title);
-  border-radius: var(--radius-xl);
-  margin-bottom: var(--spacing-md);
-  box-shadow: 0 10px 30px rgba(0, 81, 255, 0.3);
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-2xl);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--glow-orange);
   transition: all var(--transition-normal);
   position: relative;
+  border: 3px solid var(--color-primary);
 }
 
 .iconWrapper::before {
   content: '';
   position: absolute;
-  inset: -2px;
-  background: var(--gradient-title);
-  border-radius: var(--radius-xl);
+  inset: -3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-2xl);
   opacity: 0;
   transition: opacity var(--transition-normal);
   z-index: -1;
-  filter: blur(10px);
+  filter: blur(20px);
 }
 
 .serviceCard:hover .iconWrapper {
-  transform: scale(1.1) rotate(-5deg);
-  box-shadow: 0 15px 40px rgba(0, 81, 255, 0.5);
+  transform: scale(1.2) rotate(-8deg);
+  box-shadow: var(--glow-orange-strong);
 }
 
 .serviceCard:hover .iconWrapper::before {
@@ -136,13 +144,14 @@
 
 .icon {
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   transition: all var(--transition-normal);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .serviceCard:hover .icon {
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(10deg);
 }
 
 .serviceTitle {
@@ -161,10 +170,21 @@
 @media (max-width: 768px) {
   .services {
     padding: var(--spacing-2xl) 0;
+    min-height: auto;
   }
 
   .grid {
     grid-template-columns: 1fr;
+  }
+  
+  .iconWrapper {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
   }
 }
 

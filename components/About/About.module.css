@@ -1,12 +1,14 @@
 .about {
   position: relative;
+  min-height: 80vh;
   padding: var(--spacing-3xl) 0;
   background: 
-    radial-gradient(ellipse 1200px 800px at 10% 20%, rgba(0, 81, 255, 0.18) 0%, transparent 50%),
-    radial-gradient(ellipse 1000px 600px at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    radial-gradient(ellipse 1200px 800px at 10% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 1000px 600px at 90% 80%, rgba(0, 102, 255, 0.12) 0%, transparent 70%),
+    var(--color-bg-secondary);
   z-index: 1;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .about::before {
@@ -20,18 +22,28 @@
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 80px,
-      rgba(0, 81, 255, 0.03) 80px,
-      rgba(0, 81, 255, 0.03) 82px
+      transparent 100px,
+      rgba(255, 107, 53, 0.05) 100px,
+      rgba(255, 107, 53, 0.05) 101px
     ),
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 80px,
-      rgba(139, 92, 246, 0.03) 80px,
-      rgba(139, 92, 246, 0.03) 82px
+      transparent 100px,
+      rgba(0, 102, 255, 0.05) 100px,
+      rgba(0, 102, 255, 0.05) 101px
     );
   pointer-events: none;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
 }
 
 .container {
@@ -54,17 +66,30 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(0, 102, 255, 0.6));
+  }
 }
 
 .subtitle {
@@ -97,12 +122,12 @@
 
 .feature {
   display: flex;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1.5px solid var(--glass-border);
+  border: 2px solid var(--glass-border);
   border-radius: var(--radius-xl);
   transition: all var(--transition-normal);
   position: relative;
@@ -115,16 +140,25 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: var(--gradient-title);
+  height: 4px;
+  background: var(--gradient-primary);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition-normal);
 }
 
+.feature::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 107, 53, 0.1), transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
 .feature:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-neon-lg);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-neon-orange);
   border-color: var(--color-primary);
 }
 
@@ -132,21 +166,32 @@
   transform: scaleX(1);
 }
 
+.feature:hover::after {
+  opacity: 1;
+}
+
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: var(--gradient-title);
-  border-radius: var(--radius-lg);
+  width: 64px;
+  height: 64px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-xl);
   flex-shrink: 0;
+  box-shadow: var(--glow-orange);
+  transition: all var(--transition-normal);
+}
+
+.feature:hover .iconWrapper {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: var(--glow-orange-strong);
 }
 
 .icon {
   color: white;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 }
 
 .featureTitle {
@@ -177,6 +222,7 @@
 @media (max-width: 768px) {
   .about {
     padding: var(--spacing-2xl) 0;
+    min-height: auto;
   }
 
   .textContent {
@@ -186,6 +232,7 @@
   .feature {
     flex-direction: column;
     text-align: center;
+    padding: var(--spacing-md);
   }
 }
 

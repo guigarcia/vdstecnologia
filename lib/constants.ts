@@ -35,14 +35,6 @@ export const partners = {
       description: 'Especialização em Cortex AI e machine learning',
     },
   ],
-  official: [
-    {
-      name: 'Cursor',
-      src: '/logos/cursor-text.svg',
-      alt: 'Cursor',
-      description: 'Parceiro oficial da Cursor',
-    },
-  ],
 };
 
 export const services = [

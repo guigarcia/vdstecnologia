@@ -1,12 +1,19 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-3xl) var(--spacing-lg);
+  padding-top: 140px;
   overflow: hidden;
   z-index: 1;
+  scroll-snap-align: start;
+  background: 
+    radial-gradient(ellipse 1200px 800px at 30% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 1000px 700px at 70% 50%, rgba(0, 102, 255, 0.12) 0%, transparent 70%),
+    var(--color-bg-primary);
 }
 
 .content {
@@ -23,44 +30,75 @@
 }
 
 .title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: var(--spacing-lg);
+  font-size: clamp(3.5rem, 13vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: var(--spacing-2xl);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: block;
-  filter: drop-shadow(0 0 30px rgba(0, 81, 255, 0.4));
-  animation: titlePulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(255, 107, 53, 0.6));
+  animation: glitchTitle 5s ease-in-out infinite, titleGlow 3s ease-in-out infinite;
   position: relative;
+  text-shadow: 
+    3px 3px 0 rgba(255, 107, 53, 0.3),
+    -3px -3px 0 rgba(0, 102, 255, 0.3);
 }
 
-@keyframes titlePulse {
+@keyframes glitchTitle {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  92% {
+    transform: translate(-3px, 3px);
+  }
+  94% {
+    transform: translate(3px, -3px);
+  }
+  96% {
+    transform: translate(-2px, -2px);
+  }
+  98% {
+    transform: translate(2px, 2px);
+  }
+}
+
+@keyframes titleGlow {
   0%, 100% {
-    filter: drop-shadow(0 0 30px rgba(0, 81, 255, 0.4));
+    filter: drop-shadow(0 0 40px rgba(255, 107, 53, 0.6));
   }
   50% {
-    filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.5));
+    filter: drop-shadow(0 0 60px rgba(0, 102, 255, 0.8));
   }
 }
 
 .titleSubtext {
-  color: var(--color-text-primary);
-  font-weight: 400;
+  display: block;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: var(--spacing-lg);
+  text-shadow: var(--glow-cyan);
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin-bottom: var(--spacing-xl);
-  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-2xl);
+  max-width: 700px;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .ctaGroup {

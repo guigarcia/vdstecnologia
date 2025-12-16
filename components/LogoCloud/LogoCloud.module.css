@@ -76,30 +76,32 @@
 .customText {
   font-size: var(--font-size-2xl);
   font-weight: 700;
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.5px;
   transition: all var(--transition-normal);
+  filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
 }
 
 .logoWrapper:hover .customText {
-  filter: drop-shadow(var(--glow-text-primary));
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.8));
 }
 
 .snowflakeIcon {
   width: 24px;
   height: 24px;
-  opacity: 0.8;
+  opacity: 1;
   transition: all var(--transition-normal);
   flex-shrink: 0;
+  filter: grayscale(0%) brightness(1);
 }
 
 .logoWrapper:hover .snowflakeIcon {
   opacity: 1;
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(41, 181, 232, 0.5));
+  transform: scale(1.15) rotate(10deg);
+  filter: drop-shadow(0 0 12px rgba(41, 181, 232, 0.8)) grayscale(0%) brightness(1.1);
 }
 
 @media (max-width: 1024px) {

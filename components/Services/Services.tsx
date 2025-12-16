@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Brain, Zap, Rocket } from 'lucide-react';
 import Card from '../Card/Card';
+import ScanLines from '../ScanLines/ScanLines';
 import { services } from '@/lib/constants';
 import styles from './Services.module.css';
 
@@ -41,6 +42,7 @@ export default function Services() {
 
   return (
     <section id="servicos" ref={sectionRef} className={styles.services}>
+      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>

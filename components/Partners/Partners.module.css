@@ -1,12 +1,16 @@
 .partners {
   position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
   padding: var(--spacing-3xl) 0;
   background: 
-    radial-gradient(ellipse 1000px 700px at 20% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 900px 600px at 80% 70%, rgba(0, 81, 255, 0.18) 0%, transparent 60%),
-    linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    radial-gradient(ellipse 1200px 800px at 20% 30%, rgba(0, 245, 255, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 1000px 700px at 80% 70%, rgba(255, 107, 53, 0.15) 0%, transparent 70%),
+    var(--color-bg-primary);
   z-index: 1;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .partners::after {
@@ -14,18 +18,18 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1200px;
-  height: 1200px;
+  width: 1400px;
+  height: 1400px;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    rgba(0, 81, 255, 0.08) 90deg,
+    rgba(255, 107, 53, 0.1) 90deg,
     transparent 180deg,
-    rgba(139, 92, 246, 0.08) 270deg,
+    rgba(0, 102, 255, 0.1) 270deg,
     transparent 360deg
   );
   transform: translate(-50%, -50%);
-  animation: rotate 30s linear infinite;
+  animation: rotate 40s linear infinite;
   pointer-events: none;
 }
 
@@ -49,17 +53,20 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .titleGradient {
-  background: var(--gradient-title);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5));
 }
 
 .subtitle {
@@ -113,6 +120,7 @@
 @media (max-width: 768px) {
   .partners {
     padding: var(--spacing-2xl) 0;
+    min-height: auto;
   }
 }
 

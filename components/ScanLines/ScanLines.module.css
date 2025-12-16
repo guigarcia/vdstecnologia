@@ -1,0 +1,34 @@
+.scanLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 107, 53, 0.03) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 102, 255, 0.02) 3px,
+    transparent 4px
+  );
+  animation: scanLineScroll 8s linear infinite;
+}
+
+@keyframes scanLineScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
