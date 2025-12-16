@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Code, Atom, FileCode, Server, Python, Brain } from 'lucide-react';
+import { Code, Atom, FileCode, Server, FileJson, Brain } from 'lucide-react';
 import Card from '../Card/Card';
 import { technologies } from '@/lib/constants';
 import styles from './Technology.module.css';
@@ -11,7 +11,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Atom,
   FileCode,
   Server,
-  Python,
+  Python: FileJson, // Python icon não existe no lucide-react, usando FileJson como alternativa
   Brain,
 };
 
