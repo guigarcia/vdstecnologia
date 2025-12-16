@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  // Removendo output standalone para compatibilidade com Railway
+  // Railway gerencia o servidor automaticamente
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 export default nextConfig;
