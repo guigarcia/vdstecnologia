@@ -1,0 +1,48 @@
+.meshBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(at 0% 0%, rgba(0, 81, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(0, 81, 255, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+  opacity: 0.5;
+  animation: fadeIn 2s ease-in;
+}
+
+.cyberGrid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.cyberGrid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 81, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 81, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridPulse 4s ease-in-out infinite;
+}
+
+[data-theme="dark"] .cyberGrid::before {
+  background-image: 
+    linear-gradient(rgba(0, 81, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 81, 255, 0.2) 1px, transparent 1px);
+}
+
