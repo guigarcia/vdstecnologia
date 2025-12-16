@@ -29,9 +29,9 @@
 }
 
 .title {
-  font-size: clamp(3.5rem, 13vw, 9rem);
+  font-size: clamp(2.5rem, 13vw, 9rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 0.95;
   margin-bottom: var(--spacing-2xl);
   color: var(--color-text-primary);
   letter-spacing: -0.03em;
@@ -50,6 +50,7 @@
   text-shadow: 
     3px 3px 0 rgba(255, 107, 53, 0.3),
     -3px -3px 0 rgba(0, 102, 255, 0.3);
+  white-space: nowrap;
 }
 
 @keyframes glitchTitle {
@@ -162,11 +163,27 @@
   }
 
   .title {
+    font-size: clamp(1.75rem, 8vw, 3.5rem);
+    line-height: 1.1;
     margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .titleGradient {
+    display: block !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100%;
+    font-size: clamp(1.75rem, 8vw, 3.5rem);
   }
 
   .subtitle {
     margin-bottom: var(--spacing-lg);
+    font-size: clamp(1rem, 2vw, 1.125rem);
   }
 }
 
