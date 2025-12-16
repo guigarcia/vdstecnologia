@@ -1,13 +1,17 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import styles from './LogoCloud.module.css';
 
 interface Logo {
-  src: string;
+  src?: string;
   alt: string;
   name: string;
   description?: string;
+  type?: 'custom';
+  text?: string;
+  snowflakeLogo?: string;
 }
 
 interface LogoCloudProps {
@@ -60,11 +64,26 @@ export default function LogoCloud({
           style={{ animationDelay: `${index * 0.1}s` }}
         >
           <div className={styles.logoWrapper}>
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              className={styles.logoImage}
-            />
+            {logo.type === 'custom' ? (
+              <div className={styles.customLogo}>
+                <span className={styles.customText}>{logo.text}</span>
+                {logo.snowflakeLogo && (
+                  <Image
+                    src={logo.snowflakeLogo}
+                    alt="Snowflake"
+                    width={24}
+                    height={24}
+                    className={styles.snowflakeIcon}
+                  />
+                )}
+              </div>
+            ) : (
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className={styles.logoImage}
+              />
+            )}
           </div>
           {logo.description && (
             <p className={styles.logoDescription}>{logo.description}</p>

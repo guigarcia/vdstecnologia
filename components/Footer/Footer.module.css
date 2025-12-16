@@ -1,8 +1,20 @@
 .footer {
-  background: var(--color-bg-secondary);
-  border-top: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(0, 81, 255, 0.05) 0%, var(--color-bg-secondary) 100%);
+  border-top: 1px solid var(--glass-border);
   padding: var(--spacing-2xl) 0 var(--spacing-lg);
   margin-top: var(--spacing-3xl);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-title);
+  opacity: 0.3;
 }
 
 .container {
@@ -26,26 +38,23 @@
 
 .logo {
   display: flex;
-  flex-direction: column;
-  gap: 0;
-  font-weight: 700;
+  align-items: center;
+  height: 55px;
+  cursor: pointer;
 }
 
-.logoText {
-  font-size: var(--font-size-xl);
-  background: var(--gradient-title);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
+.logoImage {
+  height: auto;
+  width: auto;
+  max-height: 55px;
+  object-fit: contain;
+  transition: all var(--transition-normal);
+  filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.3));
 }
 
-.logoSubtext {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
-  font-weight: 500;
-  line-height: 1;
-  margin-top: -2px;
+.logoImage:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(0, 81, 255, 0.5));
 }
 
 .tagline {

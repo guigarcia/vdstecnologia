@@ -3,13 +3,13 @@
    ======================================== */
 
 :root {
-  /* Light Theme Colors */
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #FFFFFF;
-  --color-bg-glass: rgba(255, 255, 255, 0.7);
-  --color-text-primary: #212121;
-  --color-text-secondary: #6b7280;
-  --color-text-tertiary: #9ca3af;
+  /* Light Theme Colors - OUSADO */
+  --color-bg-primary: #f0f4ff;
+  --color-bg-secondary: #e8edff;
+  --color-bg-glass: rgba(248, 250, 255, 0.85);
+  --color-text-primary: #0a0a0f;
+  --color-text-secondary: #4b5563;
+  --color-text-tertiary: #6b7280;
   
   /* Dark Theme Colors */
   --color-bg-primary-dark: #0a0a0f;
@@ -63,19 +63,19 @@
   --gradient-title: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   --gradient-glass: linear-gradient(135deg, rgba(0, 81, 255, 0.1) 0%, rgba(0, 81, 255, 0.05) 100%);
   
-  /* Mesh Gradients */
-  --mesh-1: radial-gradient(at 0% 0%, rgba(0, 81, 255, 0.15) 0px, transparent 50%);
-  --mesh-2: radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
-  --mesh-3: radial-gradient(at 100% 100%, rgba(0, 81, 255, 0.1) 0px, transparent 50%);
-  --mesh-4: radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+  /* Mesh Gradients - INTENSIFICADOS */
+  --mesh-1: radial-gradient(at 0% 0%, rgba(0, 81, 255, 0.25) 0px, transparent 50%);
+  --mesh-2: radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.2) 0px, transparent 50%);
+  --mesh-3: radial-gradient(at 100% 100%, rgba(0, 81, 255, 0.2) 0px, transparent 50%);
+  --mesh-4: radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.25) 0px, transparent 50%);
 }
 
-/* Glass Effects */
+/* Glass Effects - MAIS VIBRANTE */
 :root {
   --glass-bg: var(--color-bg-glass);
-  --glass-border: rgba(0, 81, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 81, 255, 0.1);
-  --glass-blur: blur(12px);
+  --glass-border: rgba(0, 81, 255, 0.35);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 81, 255, 0.25), 0 0 80px 0 rgba(139, 92, 246, 0.15);
+  --glass-blur: blur(20px);
 }
 
 [data-theme="dark"] {

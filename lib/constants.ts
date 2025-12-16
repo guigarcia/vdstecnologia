@@ -2,19 +2,19 @@ export const partners = {
   clouds: [
     {
       name: 'AWS',
-      src: '/logos/aws.svg',
+      src: '/logos/aws-color.svg',
       alt: 'Amazon Web Services',
       description: 'Experiência completa em soluções AWS',
     },
     {
       name: 'Azure',
-      src: '/logos/azure.svg',
+      src: '/logos/azure-color.svg',
       alt: 'Microsoft Azure',
       description: 'Especialistas em infraestrutura Azure',
     },
     {
       name: 'GCP',
-      src: '/logos/gcp.svg',
+      src: '/logos/googlecloud-color.svg',
       alt: 'Google Cloud Platform',
       description: 'Soluções escaláveis na Google Cloud',
     },
@@ -22,13 +22,15 @@ export const partners = {
   specialties: [
     {
       name: 'Snowflake',
-      src: '/logos/snowflake.svg',
+      src: '/logos/snowflake-color.svg',
       alt: 'Snowflake',
       description: 'Super experiência em Snowflake para análise de dados',
     },
     {
       name: 'Cortex AI',
-      src: '/logos/cortex-ai.svg',
+      type: 'custom' as const,
+      text: 'Cortex AI',
+      snowflakeLogo: '/logos/snowflake-color.svg',
       alt: 'Cortex AI',
       description: 'Especialização em Cortex AI e machine learning',
     },
@@ -36,7 +38,7 @@ export const partners = {
   official: [
     {
       name: 'Cursor',
-      src: '/logos/cursor.svg',
+      src: '/logos/cursor-text.svg',
       alt: 'Cursor',
       description: 'Parceiro oficial da Cursor',
     },

@@ -64,6 +64,44 @@
   margin-top: var(--spacing-xs);
 }
 
+.customLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  height: 100%;
+}
+
+.customText {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  transition: all var(--transition-normal);
+}
+
+.logoWrapper:hover .customText {
+  filter: drop-shadow(var(--glow-text-primary));
+}
+
+.snowflakeIcon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+  transition: all var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.logoWrapper:hover .snowflakeIcon {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(41, 181, 232, 0.5));
+}
+
 @media (max-width: 1024px) {
   .logoCloud {
     grid-template-columns: repeat(2, 1fr);
