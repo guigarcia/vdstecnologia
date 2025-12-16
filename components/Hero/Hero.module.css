@@ -1,12 +1,10 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-3xl) var(--spacing-lg);
-  padding-top: 140px;
+  padding: 160px var(--spacing-lg) var(--spacing-3xl);
   overflow: hidden;
   z-index: 1;
   scroll-snap-align: start;
@@ -27,6 +25,7 @@
 .textContent {
   max-width: 800px;
   animation: slideUp 1s ease-out;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .title {
@@ -105,6 +104,7 @@
   display: flex;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  margin-top: var(--spacing-xl);
 }
 
 .ctaButton {
