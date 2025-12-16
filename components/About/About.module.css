@@ -1,8 +1,37 @@
 .about {
   position: relative;
   padding: var(--spacing-3xl) 0;
-  background: var(--color-bg-primary);
+  background: 
+    radial-gradient(ellipse 1200px 800px at 10% 20%, rgba(0, 81, 255, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 600px at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
   z-index: 1;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(0, 81, 255, 0.03) 80px,
+      rgba(0, 81, 255, 0.03) 82px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(139, 92, 246, 0.03) 80px,
+      rgba(139, 92, 246, 0.03) 82px
+    );
+  pointer-events: none;
 }
 
 .container {
@@ -73,15 +102,34 @@
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 1.5px solid var(--glass-border);
   border-radius: var(--radius-xl);
   transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-title);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
 }
 
 .feature:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-neon-md);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-neon-lg);
   border-color: var(--color-primary);
+}
+
+.feature:hover::before {
+  transform: scaleX(1);
 }
 
 .iconWrapper {

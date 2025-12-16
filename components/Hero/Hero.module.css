@@ -36,6 +36,18 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: block;
+  filter: drop-shadow(0 0 30px rgba(0, 81, 255, 0.4));
+  animation: titlePulse 3s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 30px rgba(0, 81, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.5));
+  }
 }
 
 .titleSubtext {
@@ -75,21 +87,34 @@
 .mouse {
   width: 30px;
   height: 50px;
-  border: 2px solid var(--color-primary);
+  border: 3px solid var(--color-primary);
   border-radius: 15px;
   position: relative;
+  box-shadow: 0 0 20px rgba(0, 81, 255, 0.5), inset 0 0 10px rgba(0, 81, 255, 0.2);
 }
 
 .wheel {
-  width: 4px;
-  height: 8px;
+  width: 5px;
+  height: 10px;
   background: var(--color-primary);
-  border-radius: 2px;
+  border-radius: 3px;
   position: absolute;
   top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  animation: pulse 2s ease-in-out infinite;
+  animation: wheelScroll 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 81, 255, 0.8);
+}
+
+@keyframes wheelScroll {
+  0%, 100% {
+    top: 8px;
+    opacity: 1;
+  }
+  50% {
+    top: 20px;
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 768px) {

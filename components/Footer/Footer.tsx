@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -12,8 +13,13 @@ export default function Footer() {
         <div className={styles.content}>
           <div className={styles.brand}>
             <div className={styles.logo}>
-              <span className={styles.logoText}>VDS</span>
-              <span className={styles.logoSubtext}>Tecnologia</span>
+              <Image
+                src="/logos/VDS Tecnologia - CUT.png"
+                alt="VDS Tecnologia"
+                width={160}
+                height={55}
+                className={styles.logoImage}
+              />
             </div>
             <p className={styles.tagline}>
               Transformando ideias em soluções tecnológicas com IA

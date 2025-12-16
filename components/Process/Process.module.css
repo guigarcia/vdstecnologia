@@ -1,8 +1,36 @@
 .process {
   position: relative;
   padding: var(--spacing-3xl) 0;
-  background: var(--color-bg-primary);
+  background: 
+    linear-gradient(180deg, rgba(0, 81, 255, 0.12) 0%, transparent 30%, transparent 70%, rgba(139, 92, 246, 0.12) 100%),
+    linear-gradient(45deg, transparent 30%, rgba(0, 81, 255, 0.05) 50%, transparent 70%),
+    var(--color-bg-secondary);
   z-index: 1;
+  overflow: hidden;
+}
+
+.process::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 81, 255, 0.05),
+    transparent,
+    rgba(139, 92, 246, 0.05),
+    transparent
+  );
+  animation: shimmer 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(50%); }
 }
 
 .container {

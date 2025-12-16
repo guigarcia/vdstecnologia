@@ -29,26 +29,23 @@
 
 .logo {
   display: flex;
-  flex-direction: column;
-  gap: 0;
-  font-weight: 700;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
 }
 
-.logoText {
-  font-size: var(--font-size-xl);
-  background: var(--gradient-title);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
+.logoImage {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  object-fit: contain;
+  transition: all var(--transition-normal);
+  filter: drop-shadow(0 0 10px rgba(0, 81, 255, 0.3));
 }
 
-.logoSubtext {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
-  font-weight: 500;
-  line-height: 1;
-  margin-top: -2px;
+.logoImage:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(0, 81, 255, 0.5));
 }
 
 .nav {
@@ -161,12 +158,12 @@
     padding: var(--spacing-sm) var(--spacing-md);
   }
 
-  .logoText {
-    font-size: var(--font-size-lg);
+  .logo {
+    height: 38px;
   }
 
-  .logoSubtext {
-    font-size: 0.65rem;
+  .logoImage {
+    max-height: 38px;
   }
 }
 

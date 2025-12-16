@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import styles from './Header.module.css';
@@ -40,8 +41,14 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <span className={styles.logoText}>VDS</span>
-          <span className={styles.logoSubtext}>Tecnologia</span>
+          <Image
+            src="/logos/VDS Tecnologia - CUT.png"
+            alt="VDS Tecnologia"
+            width={140}
+            height={50}
+            className={styles.logoImage}
+            priority
+          />
         </div>
 
         <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}>
