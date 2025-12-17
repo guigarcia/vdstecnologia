@@ -26,6 +26,17 @@ export default function Footer() {
             <p className={styles.tagline}>
               {t('footer.tagline')}
             </p>
+            <div className={styles.systemInfo}>
+              <div className={styles.statusLine}>
+                <span className={styles.statusDot}></span>
+                <span className={styles.statusText}>SYSTEM ONLINE</span>
+              </div>
+              <div className={styles.versionLine}>
+                <span className={styles.mono}>v2.0.25</span>
+                <span className={styles.separator}>|</span>
+                <span className={styles.mono}>BUILD #{currentYear}1217</span>
+              </div>
+            </div>
           </div>
 
           <div className={styles.links}>
@@ -46,9 +57,17 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>
-            © {currentYear} {t('footer.rights')}
-          </p>
+          <div className={styles.terminalLine}>
+            <span className={styles.prompt}>{'>'}</span>
+            <span className={styles.command}>vds-tech</span>
+            <span className={styles.path}>@{currentYear}</span>
+            <span className={styles.separator}>~</span>
+            <span className={styles.copyrightText}>{t('footer.rights')}</span>
+          </div>
+          <div className={styles.hashLine}>
+            <span className={styles.hash}>SHA-256: </span>
+            <span className={styles.hashValue}>a7f9e2c8d4b1f6a3e9c7b2d5f8a4e1c9</span>
+          </div>
         </div>
       </div>
     </footer>

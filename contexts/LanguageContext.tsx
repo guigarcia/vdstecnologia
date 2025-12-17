@@ -251,8 +251,8 @@ const translations: Record<string, Record<Language, string>> = {
     en: 'Experience',
   },
   'benefits.experience.description': {
-    pt: 'Equipe especializada com experiência nas principais clouds e tecnologias.',
-    en: 'Specialized team with experience in major clouds and technologies.',
+    pt: 'Profissionais seniores com muitos anos de mercado, especialistas em IA e grandes clouds.',
+    en: 'Senior professionals with many years of market experience, AI and major cloud experts.',
   },
   'benefits.scalability.title': {
     pt: 'Escalabilidade',
@@ -261,6 +261,22 @@ const translations: Record<string, Record<Language, string>> = {
   'benefits.scalability.description': {
     pt: 'Soluções escaláveis preparadas para crescer com seu negócio.',
     en: 'Scalable solutions ready to grow with your business.',
+  },
+  'benefits.quality.title': {
+    pt: 'Qualidade',
+    en: 'Quality',
+  },
+  'benefits.quality.description': {
+    pt: 'Framework próprio de QA e validação garantindo a excelência em cada entrega.',
+    en: 'Proprietary QA and validation framework ensuring excellence in every delivery.',
+  },
+  'benefits.security.title': {
+    pt: 'Segurança',
+    en: 'Security',
+  },
+  'benefits.security.description': {
+    pt: 'Desenvolvimento seguro com boas práticas e compliance para ambientes críticos.',
+    en: 'Secure development with best practices and compliance for critical environments.',
   },
   
   // About features
@@ -281,12 +297,12 @@ const translations: Record<string, Record<Language, string>> = {
     en: 'Deep expertise in Snowflake and Cortex AI, offering advanced data analytics and machine learning solutions.',
   },
   'about.feature3.title': {
-    pt: 'Parceria com Cursor',
-    en: 'Cursor Partnership',
+    pt: 'Heavy Users do Cursor',
+    en: 'Cursor Heavy Users',
   },
   'about.feature3.description': {
-    pt: 'Somos parceiros oficiais da Cursor, utilizando as melhores ferramentas de desenvolvimento assistido por IA para entregar resultados excepcionais.',
-    en: 'We are official Cursor partners, using the best AI-assisted development tools to deliver exceptional results.',
+    pt: 'Somos heavy users do Cursor, utilizando intensamente as melhores ferramentas de desenvolvimento assistido por IA para entregar resultados excepcionais.',
+    en: 'We are heavy users of Cursor, intensively using the best AI-assisted development tools to deliver exceptional results.',
   },
   
   // Footer
@@ -345,6 +361,10 @@ const translations: Record<string, Record<Language, string>> = {
   'partners.cortex.description': {
     pt: 'Especialização em Cortex AI e machine learning',
     en: 'Expertise in Cortex AI and machine learning',
+  },
+  'partners.vdsframework.description': {
+    pt: 'Framework próprio de Dev, QA e Validação IA',
+    en: 'Proprietary Dev, QA and AI Validation Framework',
   },
   
   // Contact info labels

@@ -2,7 +2,7 @@ export const partners = {
   clouds: [
     {
       name: 'AWS',
-      src: '/logos/aws-color.svg',
+      src: '/logos/aws-brand.svg',
       alt: 'Amazon Web Services',
       description: 'Experiência completa em soluções AWS',
     },
@@ -33,6 +33,13 @@ export const partners = {
       snowflakeLogo: '/logos/snowflake-color.svg',
       alt: 'Cortex AI',
       description: 'Especialização em Cortex AI e machine learning',
+    },
+    {
+      name: 'VDS AI Framework',
+      type: 'custom' as const,
+      text: 'VDS AI Framework',
+      alt: 'VDS AI Framework',
+      description: 'Framework próprio de Dev, QA e Validação IA',
     },
   ],
 };
@@ -96,6 +103,14 @@ export const benefits = [
   {
     key: 'scalability',
     icon: 'TrendingUp',
+  },
+  {
+    key: 'quality',
+    icon: 'CheckCircle',
+  },
+  {
+    key: 'security',
+    icon: 'Shield',
   },
 ];
 

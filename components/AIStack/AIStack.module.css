@@ -202,8 +202,27 @@
   transition: all var(--transition-normal);
 }
 
+.logoImage[src="/logos/cursor-text.svg"],
+.logoImage[src*="cursor-text"] {
+  filter: grayscale(30%) brightness(1.6) contrast(1.3);
+  opacity: 0.95;
+}
+
 .aiCard:hover .logoImage {
   filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.aiCard:hover .logoImage[src="/logos/cursor-text.svg"],
+.aiCard:hover .logoImage[src*="cursor-text"],
+.aiCard:hover .logoImage[src="/logos/openai.svg"],
+.aiCard:hover .logoImage[src*="openai"],
+.aiCard:hover .logoImage[src="/logos/ollama.svg"],
+.aiCard:hover .logoImage[src*="ollama"],
+.aiCard:hover .logoImage[src="/logos/anthropic.svg"],
+.aiCard:hover .logoImage[src*="anthropic"] {
+  filter: brightness(10) invert(1);
   opacity: 1;
   transform: scale(1.1);
 }

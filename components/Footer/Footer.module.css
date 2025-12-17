@@ -65,6 +65,55 @@
   max-width: 300px;
 }
 
+.systemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.statusLine {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-success);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-success);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusText {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-success);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.versionLine {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.7rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+.separator {
+  color: var(--color-primary);
+  opacity: 0.5;
+}
+
 .links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -96,8 +145,64 @@
 
 .bottom {
   padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--border-color);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+.terminalLine {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.prompt {
+  color: var(--color-success);
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.command {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+}
+
+.path {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.copyrightText {
+  color: var(--color-text-tertiary);
+  font-size: 0.8rem;
+}
+
+.hashLine {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.hash {
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hashValue {
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
 }
 
 .copyright {
@@ -114,6 +219,23 @@
   .links {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+  }
+
+  .terminalLine {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.75rem;
+  }
+
+  .hashLine {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.6rem;
+  }
+
+  .systemInfo {
+    align-items: flex-start;
   }
 }
 

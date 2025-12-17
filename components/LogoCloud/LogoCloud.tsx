@@ -39,6 +39,7 @@ export default function LogoCloud({
       'Soluções escaláveis na Google Cloud': 'partners.gcp.description',
       'Super experiência em Snowflake para análise de dados': 'partners.snowflake.description',
       'Especialização em Cortex AI e machine learning': 'partners.cortex.description',
+      'Framework próprio de Dev, QA e Validação IA': 'partners.vdsframework.description',
     };
     const translationKey = keyMap[logo.description];
     return translationKey ? t(translationKey) : logo.description;
@@ -73,39 +74,46 @@ export default function LogoCloud({
       className={`${styles.logoCloud} ${className}`}
       style={{ '--columns': columns } as React.CSSProperties}
     >
-      {logos.map((logo, index) => (
-        <div
-          key={logo.name}
-          className={`${styles.logoItem} ${isVisible ? styles.visible : ''}`}
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <div className={styles.logoWrapper}>
-            {logo.type === 'custom' ? (
-              <div className={styles.customLogo}>
-                <span className={styles.customText}>{logo.text}</span>
-                {logo.snowflakeLogo && (
-                  <Image
-                    src={logo.snowflakeLogo}
-                    alt="Snowflake"
-                    width={24}
-                    height={24}
-                    className={styles.snowflakeIcon}
-                  />
-                )}
-              </div>
-            ) : (
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className={styles.logoImage}
-              />
+      {logos.map((logo, index) => {
+        const isVDSFramework = logo.name === 'VDS AI Framework';
+        return (
+          <div
+            key={logo.name}
+            className={`${styles.logoItem} ${isVisible ? styles.visible : ''}`}
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className={`${styles.logoWrapper} ${isVDSFramework ? styles.vdsWrapper : ''}`}>
+              {logo.type === 'custom' ? (
+                <div className={styles.customLogo}>
+                  {isVDSFramework && <span className={styles.codeBracket}>{'<'}</span>}
+                  <span className={`${styles.customText} ${isVDSFramework ? styles.vdsText : ''}`}>
+                    {logo.text}
+                  </span>
+                  {isVDSFramework && <span className={styles.codeBracket}>{'/>'}</span>}
+                  {logo.snowflakeLogo && (
+                    <Image
+                      src={logo.snowflakeLogo}
+                      alt="Snowflake"
+                      width={24}
+                      height={24}
+                      className={styles.snowflakeIcon}
+                    />
+                  )}
+                </div>
+              ) : (
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={styles.logoImage}
+                />
+              )}
+            </div>
+            {logo.description && (
+              <p className={styles.logoDescription}>{getDescription(logo)}</p>
             )}
           </div>
-          {logo.description && (
-            <p className={styles.logoDescription}>{getDescription(logo)}</p>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

@@ -52,8 +52,20 @@
   transition: all var(--transition-normal);
 }
 
+.logoImage[src="/logos/aws-brand.svg"],
+.logoImage[src*="aws-brand"] {
+  filter: grayscale(100%) brightness(2.5) invert(1);
+  opacity: 0.7;
+}
+
 .logoWrapper:hover .logoImage {
   filter: grayscale(0%);
+  opacity: 1;
+}
+
+.logoWrapper:hover .logoImage[src="/logos/aws-brand.svg"],
+.logoWrapper:hover .logoImage[src*="aws-brand"] {
+  filter: brightness(10) invert(1);
   opacity: 1;
 }
 
@@ -83,10 +95,21 @@
   letter-spacing: -0.5px;
   transition: all var(--transition-normal);
   filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
+  animation: textPulse 3s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.6));
+  }
 }
 
 .logoWrapper:hover .customText {
   filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.8));
+  animation: none;
 }
 
 .snowflakeIcon {
@@ -102,6 +125,95 @@
   opacity: 1;
   transform: scale(1.15) rotate(10deg);
   filter: drop-shadow(0 0 12px rgba(41, 181, 232, 0.8)) grayscale(0%) brightness(1.1);
+}
+
+.vdsWrapper {
+  border: 2px solid var(--color-success) !important;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 136, 0.03) 0px,
+      transparent 2px,
+      transparent 4px,
+      rgba(0, 255, 136, 0.03) 4px
+    ),
+    rgba(0, 20, 10, 0.6) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 136, 0.2),
+    inset 0 0 20px rgba(0, 255, 136, 0.05) !important;
+}
+
+.vdsWrapper::before {
+  content: '01001010';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-success);
+  opacity: 0.3;
+  letter-spacing: 1px;
+  animation: binaryFlicker 2s steps(2) infinite;
+}
+
+.vdsWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+  animation: vdsDataFlow 3s ease-in-out infinite;
+}
+
+@keyframes vdsDataFlow {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes binaryFlicker {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.codeBracket {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xl);
+  color: var(--color-success);
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--color-success);
+  animation: bracketPulse 2s ease-in-out infinite;
+  margin: 0 var(--spacing-xs);
+}
+
+@keyframes bracketPulse {
+  0%, 100% {
+    color: var(--color-success);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+  }
+  50% {
+    color: var(--color-accent);
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.8);
+  }
+}
+
+.vdsText {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.1em !important;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4) !important;
 }
 
 @media (max-width: 1024px) {

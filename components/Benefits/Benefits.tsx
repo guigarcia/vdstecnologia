@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Zap, Lightbulb, Award, TrendingUp } from 'lucide-react';
+import { Zap, Lightbulb, Award, TrendingUp, CheckCircle, Shield } from 'lucide-react';
 import Card from '../Card/Card';
 import ScanLines from '../ScanLines/ScanLines';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -13,6 +13,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Lightbulb,
   Award,
   TrendingUp,
+  CheckCircle,
+  Shield,
 };
 
 export default function Benefits() {
