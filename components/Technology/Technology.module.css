@@ -203,6 +203,7 @@
     inset 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .terminalLine {
@@ -455,11 +456,22 @@
 
   .terminalBox {
     padding: var(--spacing-sm);
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .terminalLine {
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+
+  .args {
+    font-size: 0.65rem;
+  }
+
+  .terminalOutput {
     font-size: 0.75rem;
-    flex-wrap: wrap;
   }
 
   .matrixBg {
@@ -468,6 +480,13 @@
 
   .techName {
     font-size: var(--font-size-sm);
+  }
+  
+  .consoleTitle {
+    font-size: 0.65rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 

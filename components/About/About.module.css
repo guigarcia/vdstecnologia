@@ -80,8 +80,10 @@
   border: 1px solid rgba(255, 107, 53, 0.2);
   border-radius: var(--radius-md);
   width: fit-content;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .terminalDots {
@@ -167,9 +169,11 @@
   background: rgba(0, 0, 0, 0.4);
   border-left: 3px solid var(--color-success);
   width: fit-content;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+  overflow: hidden;
 }
 
 .prompt {
@@ -325,8 +329,12 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) var(--spacing-sm);
     min-height: auto;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
   }
 
   .textContent {
@@ -340,24 +348,38 @@
   }
 
   .terminalHeader {
-    font-size: 0.65rem;
-    padding: var(--spacing-xs);
-    gap: var(--spacing-xs);
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    gap: 6px;
+    max-width: 95%;
   }
 
   .terminalPath {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 150px;
   }
 
   .commandLine {
-    font-size: 0.75rem;
-    flex-wrap: wrap;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    gap: 4px;
+    max-width: 95%;
+  }
+
+  .args {
+    font-size: 0.65rem;
   }
 
   .dot {
     width: 8px;
     height: 8px;
+  }
+
+  .logosSection {
+    padding: 0 var(--spacing-xs);
   }
 }
 

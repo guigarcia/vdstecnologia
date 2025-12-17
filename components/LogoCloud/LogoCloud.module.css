@@ -74,6 +74,9 @@
   color: var(--color-text-secondary);
   text-align: center;
   margin-top: var(--spacing-xs);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .customLogo {
@@ -96,6 +99,8 @@
   transition: all var(--transition-normal);
   filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
   animation: textPulse 3s ease-in-out infinite;
+  word-break: break-word;
+  text-align: center;
 }
 
 @keyframes textPulse {
@@ -225,6 +230,25 @@
 @media (max-width: 768px) {
   .logoCloud {
     grid-template-columns: 1fr;
+    padding: var(--spacing-md) 0;
+  }
+
+  .logoItem {
+    max-width: 100%;
+  }
+
+  .logoWrapper {
+    height: 100px;
+    padding: var(--spacing-sm);
+  }
+
+  .customText {
+    font-size: var(--font-size-lg);
+  }
+
+  .logoDescription {
+    font-size: 0.8rem;
+    padding: 0 var(--spacing-xs);
   }
 }
 

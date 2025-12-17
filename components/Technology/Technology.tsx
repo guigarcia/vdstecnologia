@@ -24,6 +24,7 @@ export default function Technology() {
   const [showCursor, setShowCursor] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [matrixChars, setMatrixChars] = useState<string[][]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,6 +48,19 @@ export default function Technology() {
         observer.unobserve(sectionRef.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    // Generate matrix characters once on mount
+    const chars: string[][] = [];
+    for (let i = 0; i < 20; i++) {
+      const column: string[] = [];
+      for (let j = 0; j < 10; j++) {
+        column.push(String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96)));
+      }
+      chars.push(column);
+    }
+    setMatrixChars(chars);
   }, []);
 
   useEffect(() => {
@@ -90,11 +104,11 @@ export default function Technology() {
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <div className={styles.matrixBg}>
-            {Array.from({ length: 20 }).map((_, i) => (
+            {matrixChars.map((column, i) => (
               <div key={i} className={styles.matrixColumn} style={{ left: `${i * 5}%`, animationDelay: `${i * 0.1}s` }}>
-                {Array.from({ length: 10 }).map((_, j) => (
+                {column.map((char, j) => (
                   <span key={j} className={styles.matrixChar}>
-                    {String.fromCharCode(0x30A0 + Math.random() * 96)}
+                    {char}
                   </span>
                 ))}
               </div>
