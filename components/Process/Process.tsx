@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Search, Code, CheckCircle, Cloud } from 'lucide-react';
 import Card from '../Card/Card';
 import ScanLines from '../ScanLines/ScanLines';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { processSteps } from '@/lib/constants';
 import styles from './Process.module.css';
 
@@ -15,6 +16,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export default function Process() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -47,10 +49,10 @@ export default function Process() {
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>
-            <span className={styles.titleGradient}>Nosso Processo</span>
+            <span className={styles.titleGradient}>{t('process.title')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Metodologia ágil com IA acelerando cada etapa do desenvolvimento
+            {t('process.subtitle')}
           </p>
         </div>
 
@@ -59,7 +61,7 @@ export default function Process() {
             const Icon = iconMap[step.icon];
             return (
               <div
-                key={step.title}
+                key={step.key}
                 className={`${styles.timelineItem} ${isVisible ? styles.visible : ''}`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
@@ -68,8 +70,8 @@ export default function Process() {
                   {Icon && <Icon className={styles.markerIcon} />}
                 </div>
                 <Card variant="glass" className={styles.stepCard}>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <p className={styles.stepDescription}>{step.description}</p>
+                  <h3 className={styles.stepTitle}>{t(`process.${step.key}.title`)}</h3>
+                  <p className={styles.stepDescription}>{t(`process.${step.key}.description`)}</p>
                 </Card>
               </div>
             );

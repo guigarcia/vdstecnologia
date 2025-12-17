@@ -39,18 +39,15 @@ export const partners = {
 
 export const services = [
   {
-    title: 'Desenvolvimento com IA',
-    description: 'Criamos soluções inteligentes utilizando IA como parceiro estratégico no desenvolvimento, acelerando processos e entregando resultados inovadores.',
+    key: 'dev',
     icon: 'Brain',
   },
   {
-    title: 'Integração de IA',
-    description: 'Integramos inteligência artificial em processos de negócio existentes, transformando operações e aumentando eficiência operacional.',
+    key: 'integration',
     icon: 'Zap',
   },
   {
-    title: 'Transformação Digital',
-    description: 'Consultoria especializada em transformação digital, ajudando empresas a aproveitarem o máximo da tecnologia moderna e IA.',
+    key: 'transformation',
     icon: 'Rocket',
   },
 ];
@@ -66,46 +63,38 @@ export const technologies = [
 
 export const processSteps = [
   {
-    title: 'Análise e Planejamento',
-    description: 'Entendemos suas necessidades e definimos a estratégia ideal utilizando IA para acelerar o processo.',
+    key: 'step1',
     icon: 'Search',
   },
   {
-    title: 'Desenvolvimento Ágil',
-    description: 'Desenvolvimento rápido e eficiente com IA como parceiro, reduzindo tempo de entrega significativamente.',
+    key: 'step2',
     icon: 'Code',
   },
   {
-    title: 'Integração e Testes',
-    description: 'Integração perfeita com sistemas existentes e testes automatizados garantindo qualidade.',
+    key: 'step3',
     icon: 'CheckCircle',
   },
   {
-    title: 'Deploy e Suporte',
-    description: 'Deploy em clouds modernas com suporte contínuo e otimizações baseadas em IA.',
+    key: 'step4',
     icon: 'Cloud',
   },
 ];
 
 export const benefits = [
   {
-    title: 'Velocidade',
-    description: 'Desenvolvimento acelerado com IA, reduzindo tempo de entrega em até 70%.',
+    key: 'speed',
     icon: 'Zap',
   },
   {
-    title: 'Inovação',
-    description: 'Soluções modernas e inovadoras utilizando as mais recentes tecnologias.',
+    key: 'innovation',
     icon: 'Lightbulb',
   },
   {
-    title: 'Experiência',
-    description: 'Equipe especializada com experiência nas principais clouds e tecnologias.',
+    key: 'experience',
     icon: 'Award',
   },
   {
-    title: 'Escalabilidade',
-    description: 'Soluções escaláveis preparadas para crescer com seu negócio.',
+    key: 'scalability',
     icon: 'TrendingUp',
   },
 ];

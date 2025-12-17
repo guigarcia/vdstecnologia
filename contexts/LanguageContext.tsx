@@ -324,6 +324,46 @@ const translations: Record<string, Record<Language, string>> = {
     pt: 'Super experiência em Snowflake e Cortex AI',
     en: 'Deep expertise in Snowflake and Cortex AI',
   },
+  
+  // Partner descriptions
+  'partners.aws.description': {
+    pt: 'Experiência completa em soluções AWS',
+    en: 'Complete experience in AWS solutions',
+  },
+  'partners.azure.description': {
+    pt: 'Especialistas em infraestrutura Azure',
+    en: 'Azure infrastructure specialists',
+  },
+  'partners.gcp.description': {
+    pt: 'Soluções escaláveis na Google Cloud',
+    en: 'Scalable solutions on Google Cloud',
+  },
+  'partners.snowflake.description': {
+    pt: 'Super experiência em Snowflake para análise de dados',
+    en: 'Deep expertise in Snowflake for data analytics',
+  },
+  'partners.cortex.description': {
+    pt: 'Especialização em Cortex AI e machine learning',
+    en: 'Expertise in Cortex AI and machine learning',
+  },
+  
+  // Contact info labels
+  'contact.emailLabel': {
+    pt: 'Email',
+    en: 'Email',
+  },
+  'contact.phoneLabel': {
+    pt: 'Telefone',
+    en: 'Phone',
+  },
+  'contact.submitting': {
+    pt: 'Enviando...',
+    en: 'Sending...',
+  },
+  'contact.success': {
+    pt: 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+    en: 'Message sent successfully! We will contact you soon.',
+  },
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {

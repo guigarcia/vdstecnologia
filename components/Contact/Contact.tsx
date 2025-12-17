@@ -5,9 +5,11 @@ import { Send, Mail, Phone } from 'lucide-react';
 import Button from '../Button/Button';
 import Card from '../Card/Card';
 import ScanLines from '../ScanLines/ScanLines';
+import { useLanguage } from '@/contexts/LanguageContext';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -47,7 +49,7 @@ export default function Contact() {
     // Simular envio do formulário
     await new Promise((resolve) => setTimeout(resolve, 1000));
     
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+    alert(t('contact.success'));
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
   };
@@ -67,10 +69,10 @@ export default function Contact() {
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>
-            <span className={styles.titleGradient}>Entre em Contato</span>
+            <span className={styles.titleGradient}>{t('contact.title')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Estamos prontos para transformar suas ideias em realidade
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -79,7 +81,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.label}>
-                  Nome
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -89,13 +91,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className={styles.input}
-                  placeholder="Seu nome"
+                  placeholder={t('contact.namePlaceholder')}
                 />
               </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="email" className={styles.label}>
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -105,13 +107,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className={styles.input}
-                  placeholder="seu@email.com"
+                  placeholder={t('contact.emailPlaceholder')}
                 />
               </div>
 
               <div className={styles.formGroup}>
                 <label htmlFor="message" className={styles.label}>
-                  Mensagem
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -121,7 +123,7 @@ export default function Contact() {
                   required
                   rows={5}
                   className={styles.textarea}
-                  placeholder="Conte-nos sobre seu projeto..."
+                  placeholder={t('contact.messagePlaceholder')}
                 />
               </div>
 
@@ -132,7 +134,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className={styles.submitButton}
               >
-                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                {isSubmitting ? t('contact.submitting') : t('contact.send')}
                 <Send size={20} />
               </Button>
             </form>
@@ -141,13 +143,13 @@ export default function Contact() {
           <div className={`${styles.info} ${isVisible ? styles.visible : ''}`}>
             <Card variant="glass" className={styles.infoCard}>
               <Mail className={styles.infoIcon} />
-              <h3 className={styles.infoTitle}>Email</h3>
-              <p className={styles.infoText}>contato@vdstecnologia.com</p>
+              <h3 className={styles.infoTitle}>{t('contact.emailLabel')}</h3>
+              <p className={styles.infoText}>contato@vdstecnologia.com.br</p>
             </Card>
 
             <Card variant="glass" className={styles.infoCard}>
               <Phone className={styles.infoIcon} />
-              <h3 className={styles.infoTitle}>Telefone</h3>
+              <h3 className={styles.infoTitle}>{t('contact.phoneLabel')}</h3>
               <p className={styles.infoText}>+55 (11) 9999-9999</p>
             </Card>
           </div>

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import ScanLines from '../ScanLines/ScanLines';
+import { useLanguage } from '@/contexts/LanguageContext';
 import styles from './AIStack.module.css';
 
 const aiTools = [
@@ -19,6 +20,7 @@ const aiTools = [
 ];
 
 export default function AIStack() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -57,10 +59,10 @@ export default function AIStack() {
             <Sparkles className={styles.sparkleIcon} />
           </div>
           <h2 className={styles.title}>
-            <span className={styles.titleGradient}>AI STACK</span>
+            <span className={styles.titleGradient}>{t('aistack.title')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Powered by the most advanced AI models and tools
+            {t('aistack.subtitle')}
           </p>
         </div>
 

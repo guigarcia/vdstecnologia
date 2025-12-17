@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 import styles from './LogoCloud.module.css';
 
 interface Logo {
@@ -25,8 +26,23 @@ export default function LogoCloud({
   columns = 3,
   className = '',
 }: LogoCloudProps) {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  const getDescription = (logo: Logo): string => {
+    if (!logo.description) return '';
+    // Map descriptions to translation keys
+    const keyMap: Record<string, string> = {
+      'Experiência completa em soluções AWS': 'partners.aws.description',
+      'Especialistas em infraestrutura Azure': 'partners.azure.description',
+      'Soluções escaláveis na Google Cloud': 'partners.gcp.description',
+      'Super experiência em Snowflake para análise de dados': 'partners.snowflake.description',
+      'Especialização em Cortex AI e machine learning': 'partners.cortex.description',
+    };
+    const translationKey = keyMap[logo.description];
+    return translationKey ? t(translationKey) : logo.description;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,7 +102,7 @@ export default function LogoCloud({
             )}
           </div>
           {logo.description && (
-            <p className={styles.logoDescription}>{logo.description}</p>
+            <p className={styles.logoDescription}>{getDescription(logo)}</p>
           )}
         </div>
       ))}

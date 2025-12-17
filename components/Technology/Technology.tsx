@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Code, Atom, FileCode, Server, FileJson, Brain } from 'lucide-react';
 import Card from '../Card/Card';
 import ScanLines from '../ScanLines/ScanLines';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { technologies } from '@/lib/constants';
 import styles from './Technology.module.css';
 
@@ -17,6 +18,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export default function Technology() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -49,10 +51,10 @@ export default function Technology() {
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>
-            <span className={styles.titleGradient}>Tecnologias</span>
+            <span className={styles.titleGradient}>{t('technology.title')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Stack moderna e inovadora para desenvolvimento de soluções de ponta
+            {t('technology.subtitle')}
           </p>
         </div>
 

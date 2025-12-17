@@ -3,10 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import LogoCloud from '../LogoCloud/LogoCloud';
 import ScanLines from '../ScanLines/ScanLines';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { partners } from '@/lib/constants';
 import styles from './Partners.module.css';
 
 export default function Partners() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -39,26 +41,26 @@ export default function Partners() {
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>
-            <span className={styles.titleGradient}>Nossos Parceiros</span>
+            <span className={styles.titleGradient}>{t('partners.title')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Trabalhamos com as principais plataformas cloud e tecnologias de ponta
+            {t('partners.subtitle')}
           </p>
         </div>
 
         <div className={styles.sections}>
           <div className={`${styles.section} ${isVisible ? styles.visible : ''}`}>
-            <h3 className={styles.sectionTitle}>Cloud Partners</h3>
+            <h3 className={styles.sectionTitle}>{t('partners.clouds.title')}</h3>
             <p className={styles.sectionDescription}>
-              Experiência nas principais plataformas cloud do mercado
+              {t('partners.clouds.description')}
             </p>
             <LogoCloud logos={partners.clouds} columns={3} />
           </div>
 
           <div className={`${styles.section} ${isVisible ? styles.visible : ''}`}>
-            <h3 className={styles.sectionTitle}>Especializações</h3>
+            <h3 className={styles.sectionTitle}>{t('partners.specialties.title')}</h3>
             <p className={styles.sectionDescription}>
-              Super experiência em Snowflake e Cortex AI
+              {t('partners.specialties.description')}
             </p>
             <LogoCloud logos={partners.specialties} columns={2} />
           </div>

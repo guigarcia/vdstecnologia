@@ -2,9 +2,11 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -22,30 +24,30 @@ export default function Footer() {
               />
             </div>
             <p className={styles.tagline}>
-              Transformando ideias em soluções tecnológicas com IA
+              {t('footer.tagline')}
             </p>
           </div>
 
           <div className={styles.links}>
             <div className={styles.linkGroup}>
-              <h4 className={styles.linkTitle}>Navegação</h4>
-              <a href="#sobre" className={styles.link}>Sobre</a>
-              <a href="#servicos" className={styles.link}>Serviços</a>
-              <a href="#tecnologia" className={styles.link}>Tecnologia</a>
+              <h4 className={styles.linkTitle}>{t('footer.navigation')}</h4>
+              <a href="#sobre" className={styles.link}>{t('menu.about')}</a>
+              <a href="#servicos" className={styles.link}>{t('menu.services')}</a>
+              <a href="#tecnologia" className={styles.link}>{t('menu.technology')}</a>
             </div>
 
             <div className={styles.linkGroup}>
-              <h4 className={styles.linkTitle}>Empresa</h4>
-              <a href="#parceiros" className={styles.link}>Parceiros</a>
-              <a href="#processo" className={styles.link}>Processo</a>
-              <a href="#contato" className={styles.link}>Contato</a>
+              <h4 className={styles.linkTitle}>{t('footer.company')}</h4>
+              <a href="#parceiros" className={styles.link}>{t('menu.partners')}</a>
+              <a href="#processo" className={styles.link}>{t('menu.process')}</a>
+              <a href="#contato" className={styles.link}>{t('menu.contact')}</a>
             </div>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {currentYear} VDS Tecnologia. Todos os direitos reservados.
+            © {currentYear} {t('footer.rights')}
           </p>
         </div>
       </div>

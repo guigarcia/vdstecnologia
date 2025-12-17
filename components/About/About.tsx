@@ -4,10 +4,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Cloud, Database, Sparkles } from 'lucide-react';
 import LogoCloud from '../LogoCloud/LogoCloud';
 import ScanLines from '../ScanLines/ScanLines';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { partners } from '@/lib/constants';
 import styles from './About.module.css';
 
 export default function About() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -45,12 +47,10 @@ export default function About() {
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>
-            <span className={styles.titleGradient}>Sobre a VDS Tecnologia</span>
+            <span className={styles.titleGradient}>{t('about.title')}</span>
           </h2>
           <p className={styles.subtitle}>
-            Somos especialistas em transformar ideias em soluções tecnológicas 
-            inovadoras, utilizando inteligência artificial como parceiro estratégico 
-            no desenvolvimento.
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -61,10 +61,9 @@ export default function About() {
                 <Cloud className={styles.icon} />
               </div>
               <div>
-                <h3 className={styles.featureTitle}>Experiência em Clouds</h3>
+                <h3 className={styles.featureTitle}>{t('about.feature1.title')}</h3>
                 <p className={styles.featureDescription}>
-                  Trabalhamos com as principais plataformas cloud: AWS, Azure e Google Cloud Platform, 
-                  oferecendo soluções escaláveis e confiáveis.
+                  {t('about.feature1.description')}
                 </p>
               </div>
             </div>
@@ -74,10 +73,9 @@ export default function About() {
                 <Database className={styles.icon} />
               </div>
               <div>
-                <h3 className={styles.featureTitle}>Especialização em Snowflake</h3>
+                <h3 className={styles.featureTitle}>{t('about.feature2.title')}</h3>
                 <p className={styles.featureDescription}>
-                  Super experiência em Snowflake e Cortex AI, oferecendo soluções avançadas 
-                  de análise de dados e machine learning.
+                  {t('about.feature2.description')}
                 </p>
               </div>
             </div>
@@ -87,10 +85,9 @@ export default function About() {
                 <Sparkles className={styles.icon} />
               </div>
               <div>
-                <h3 className={styles.featureTitle}>Parceria com Cursor</h3>
+                <h3 className={styles.featureTitle}>{t('about.feature3.title')}</h3>
                 <p className={styles.featureDescription}>
-                  Somos parceiros oficiais da Cursor, utilizando as melhores ferramentas 
-                  de desenvolvimento assistido por IA para entregar resultados excepcionais.
+                  {t('about.feature3.description')}
                 </p>
               </div>
             </div>
