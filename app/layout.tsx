@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Transformamos ideias em soluções tecnológicas com IA. Desenvolvimento acelerado com até 70% de redução no tempo de entrega.",
     images: [
       {
-        url: "/logos/vds_thumb_400_hacker_tagline.png",
+        url: "https://vdstecnologia.com/logos/vds_thumb_400_hacker_tagline.png",
         width: 400,
         height: 400,
         alt: "VDS Tecnologia - Value-Driven Solutions",
@@ -38,11 +38,12 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "VDS Tecnologia - Value-Driven Solutions",
     description: "Transformamos ideias em soluções tecnológicas com IA",
-    images: ["/logos/vds_thumb_400_hacker_tagline.png"],
+    images: ["https://vdstecnologia.com/logos/vds_thumb_400_hacker_tagline.png"],
   },
+  metadataBase: new URL('https://vdstecnologia.com'),
   alternates: {
     canonical: "https://vdstecnologia.com",
     languages: {
