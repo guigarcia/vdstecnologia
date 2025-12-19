@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Search, Code, CheckCircle, Cloud } from 'lucide-react';
 import Card from '../Card/Card';
-import ScanLines from '../ScanLines/ScanLines';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { processSteps } from '@/lib/constants';
 import styles from './Process.module.css';
@@ -45,9 +44,12 @@ export default function Process() {
 
   return (
     <section id="processo" ref={sectionRef} className={styles.process}>
-      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+          <div className={styles.terminalLine}>
+            <span className={styles.prompt}>{'>'}</span>
+            <span className={styles.command}>cat process.md</span>
+          </div>
           <h2 className={styles.title}>
             <span className={styles.titleGradient}>{t('process.title')}</span>
           </h2>

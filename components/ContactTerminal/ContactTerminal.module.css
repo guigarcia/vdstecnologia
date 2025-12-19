@@ -1,0 +1,437 @@
+.contact {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 0, 5, 0.95) 100%);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.contact.matrixMode {
+  background: linear-gradient(180deg, rgba(0, 20, 0, 0.95) 0%, rgba(0, 10, 0, 0.95) 100%);
+}
+
+.contact.matrixMode .terminalLine {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88;
+}
+
+.contact.hackerMode {
+  animation: glitchBg 0.5s infinite;
+}
+
+@keyframes glitchBg {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 10px 10px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 0.2em;
+}
+
+.titleGradient {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff00ff 50%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.terminalContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.8s ease-out;
+}
+
+.terminalContainer.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.terminal {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 5, 0, 0.95) 100%);
+  border: 2px solid rgba(255, 107, 0, 0.5);
+  box-shadow: 
+    0 0 40px rgba(255, 107, 0, 0.3),
+    inset 0 0 60px rgba(255, 107, 0, 0.05);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  overflow: hidden;
+  animation: terminalBoot 0.6s ease-out;
+}
+
+@keyframes terminalBoot {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, rgba(255, 107, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(255, 0, 255, 0.2) 100%);
+  border-bottom: 2px solid rgba(255, 107, 0, 0.5);
+}
+
+.systemPrompt {
+  font-family: 'Courier New', monospace;
+  color: #00ff88;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+.statusIndicators {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.indicator {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6);
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.indicator.active {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: #00ff88;
+  color: #00ff88;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.terminalBody {
+  padding: 1.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #00ff88;
+  min-height: 350px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.terminalBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminalBody::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.terminalBody::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 0, 0.5);
+  border-radius: 4px;
+}
+
+.terminalLine {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  animation: lineAppear 0.3s ease-out;
+}
+
+@keyframes lineAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.prompt {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.terminalInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  caret-color: #ff6b00;
+}
+
+.terminalInput::placeholder {
+  color: rgba(0, 255, 136, 0.4);
+}
+
+/* Form */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 0, 5, 0.95) 100%);
+  border: 2px solid rgba(255, 0, 255, 0.5);
+  box-shadow: 
+    0 0 40px rgba(255, 0, 255, 0.3),
+    inset 0 0 60px rgba(255, 0, 255, 0.05);
+  padding: 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  animation: formAppear 0.6s ease-out 0.3s both;
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.labelPrompt {
+  color: #ff00ff;
+  font-weight: bold;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.2) 0%, rgba(255, 107, 0, 0.2) 100%);
+  border: 2px solid rgba(255, 0, 255, 0.6);
+  color: #ff00ff;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.4) 0%, rgba(255, 107, 0, 0.4) 100%);
+  border-color: #ff00ff;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+  transform: scale(1.02);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.infoValue {
+  font-size: 0.95rem;
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .terminalContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .terminal {
+    order: 2;
+  }
+  
+  .formContainer {
+    order: 1;
+  }
+
+  .terminalBody {
+    min-height: 250px;
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .form {
+    padding: 1.5rem;
+  }
+
+  .terminalBody {
+    min-height: 200px;
+    max-height: 200px;
+    font-size: 0.8rem;
+  }
+
+  .systemPrompt {
+    font-size: 0.75rem;
+  }
+
+  .statusIndicators {
+    gap: 0.5rem;
+  }
+
+  .indicator {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .systemPrompt {
+    font-size: 0.75rem;
+  }
+
+  .statusIndicators {
+    gap: 0.5rem;
+  }
+
+  .indicator {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+

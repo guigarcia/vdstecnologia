@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Brain, Zap, Rocket } from 'lucide-react';
 import Card from '../Card/Card';
-import ScanLines from '../ScanLines/ScanLines';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { services } from '@/lib/constants';
 import styles from './Services.module.css';
@@ -44,9 +43,12 @@ export default function Services() {
 
   return (
     <section id="servicos" ref={sectionRef} className={styles.services}>
-      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+          <div className={styles.terminalLine}>
+            <span className={styles.prompt}>{'>'}</span>
+            <span className={styles.command}>ls services/</span>
+          </div>
           <h2 className={styles.title}>
             <span className={styles.titleGradient}>{t('services.title')}</span>
           </h2>

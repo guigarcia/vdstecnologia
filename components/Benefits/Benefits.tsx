@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Zap, Lightbulb, Award, TrendingUp, CheckCircle, Shield } from 'lucide-react';
 import Card from '../Card/Card';
-import ScanLines from '../ScanLines/ScanLines';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { benefits } from '@/lib/constants';
 import styles from './Benefits.module.css';
@@ -47,11 +46,15 @@ export default function Benefits() {
 
   return (
     <section id="beneficios" ref={sectionRef} className={styles.benefits}>
-      <ScanLines />
       <div className={styles.container}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
+          <div className={styles.terminalLine}>
+            <span className={styles.prompt}>{'>'}</span>
+            <span className={styles.command}>cat benefits.txt</span>
+          </div>
           <h2 className={styles.title}>
             <span className={styles.titleGradient}>{t('benefits.title')}</span>
+            <span className={styles.fullName}>{t('benefits.fullname')}</span>
           </h2>
           <p className={styles.subtitle}>
             {t('benefits.subtitle')}

@@ -1,3 +1,12 @@
+/**
+ * VDS Tecnologia - Constants
+ * 
+ * Centralized data for partners, services, and modules
+ * All partner logos are SVGs for optimal performance and scaling
+ * 
+ * Note: We genuinely use all these tools in production
+ */
+
 export const partners = {
   clouds: [
     {
@@ -111,6 +120,45 @@ export const benefits = [
   {
     key: 'security',
     icon: 'Shield',
+  },
+];
+
+/**
+ * VDS Modules - The 6 Pillars of our methodology
+ * 
+ * Each module represents a core principle in our development process
+ * Colors chosen for semantic meaning and visual hierarchy
+ */
+export const vdsModules = [
+  {
+    key: 'valueFirst',
+    icon: 'Target',
+    color: '#ff6b00', // Orange: The color of impact
+  },
+  {
+    key: 'velocityControl',
+    icon: 'Zap',
+    color: '#00d4ff', // Cyan: The color of speed
+  },
+  {
+    key: 'validatedDelivery',
+    icon: 'CheckCircle',
+    color: '#00ff88', // Green: The color of validation
+  },
+  {
+    key: 'secureDesign',
+    icon: 'Shield',
+    color: '#ff00ff', // Magenta: The color of security
+  },
+  {
+    key: 'scaleReady',
+    icon: 'TrendingUp',
+    color: '#ffdd00', // Yellow: The color of growth
+  },
+  {
+    key: 'vdsFramework',
+    icon: 'Package',
+    color: '#00ff88', // Green: Our proprietary framework
   },
 ];
 

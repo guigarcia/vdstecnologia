@@ -1,0 +1,16 @@
+# Security Contact Information
+# 
+# If you found a security issue, please contact us responsibly
+Contact: mailto:security@vdstecnologia.com.br
+Preferred-Languages: pt, en
+
+# For curious developers:
+# Welcome! We appreciate thorough people.
+# If you're reading this, you're our kind of person.
+# 
+# We believe in clean code, transparency, and attention to detail.
+# Check out /humans.txt for more about us.
+# 
+# Interested in working together?
+# contato@vdstecnologia.com.br
+

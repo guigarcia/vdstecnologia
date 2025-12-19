@@ -1,3 +1,13 @@
+/**
+ * LanguageContext - Bilingual Support
+ * 
+ * Provides PT-BR and EN translations across the application
+ * Language preference persisted in localStorage
+ * 
+ * All translations maintain equivalent tone and meaning
+ * between languages while respecting cultural nuances
+ */
+
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
@@ -126,6 +136,10 @@ const translations: Record<string, Record<Language, string>> = {
     pt: 'Por que escolher a VDS?',
     en: 'Why choose VDS?',
   },
+  'benefits.fullname': {
+    pt: 'Value-Driven Solutions',
+    en: 'Value-Driven Solutions',
+  },
   'benefits.subtitle': {
     pt: 'Vantagens competitivas que fazem a diferença',
     en: 'Competitive advantages that make the difference',
@@ -201,8 +215,8 @@ const translations: Record<string, Record<Language, string>> = {
     en: 'Analysis & Planning',
   },
   'process.step1.description': {
-    pt: 'Entendemos suas necessidades e definimos a estratégia ideal utilizando IA para acelerar o processo.',
-    en: 'We understand your needs and define the ideal strategy using AI to accelerate the process.',
+    pt: 'Definimos KPIs (tempo, custo, conversão, SLA, risco), baseline e objetivos. IA acelera a análise e planejamento estratégico.',
+    en: 'We define KPIs (time, cost, conversion, SLA, risk), baseline and objectives. AI accelerates strategic analysis and planning.',
   },
   'process.step2.title': {
     pt: 'Desenvolvimento Ágil',
@@ -210,7 +224,7 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'process.step2.description': {
     pt: 'Desenvolvimento rápido e eficiente com IA como parceiro, reduzindo tempo de entrega significativamente.',
-    en: 'Fast and efficient development with AI as a partner, significantly reducing delivery time.',
+    en: 'Fast and efficient development with AI as a strategic partner, significantly reducing time to market.',
   },
   'process.step3.title': {
     pt: 'Integração e Testes',
@@ -218,7 +232,7 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'process.step3.description': {
     pt: 'Integração perfeita com sistemas existentes e testes automatizados garantindo qualidade.',
-    en: 'Perfect integration with existing systems and automated testing ensuring quality.',
+    en: 'Seamless integration with existing systems and automated testing to ensure quality.',
   },
   'process.step4.title': {
     pt: 'Deploy e Suporte',
@@ -226,7 +240,7 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'process.step4.description': {
     pt: 'Deploy em clouds modernas com suporte contínuo e otimizações baseadas em IA.',
-    en: 'Deploy on modern clouds with continuous support and AI-based optimizations.',
+    en: 'Deployment on modern cloud platforms with continuous support and AI-driven optimizations.',
   },
   
   // Benefits
@@ -252,7 +266,7 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'benefits.experience.description': {
     pt: 'Profissionais seniores com muitos anos de mercado, especialistas em IA e grandes clouds.',
-    en: 'Senior professionals with many years of market experience, AI and major cloud experts.',
+    en: 'Senior professionals with years of experience, experts in AI and major cloud platforms.',
   },
   'benefits.scalability.title': {
     pt: 'Escalabilidade',
@@ -286,7 +300,7 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'about.feature1.description': {
     pt: 'Trabalhamos com as principais plataformas cloud: AWS, Azure e Google Cloud Platform, oferecendo soluções escaláveis e confiáveis.',
-    en: 'We work with the main cloud platforms: AWS, Azure and Google Cloud Platform, offering scalable and reliable solutions.',
+    en: 'We work with leading cloud platforms: AWS, Azure, and Google Cloud Platform, delivering scalable and reliable solutions.',
   },
   'about.feature2.title': {
     pt: 'Especialização em Snowflake',
@@ -383,6 +397,144 @@ const translations: Record<string, Record<Language, string>> = {
   'contact.success': {
     pt: 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
     en: 'Message sent successfully! We will contact you soon.',
+  },
+  
+  // VDS Decoder
+  'vds.decoder.line1': {
+    pt: 'Initializing VDS Protocol...',
+    en: 'Initializing VDS Protocol...',
+  },
+  'vds.decoder.line2': {
+    pt: 'Decoding: V.A.L.U.E - D.R.I.V.E.N - S.O.L.U.T.I.O.N.S',
+    en: 'Decoding: V.A.L.U.E - D.R.I.V.E.N - S.O.L.U.T.I.O.N.S',
+  },
+  'vds.decoder.value': {
+    pt: 'VALUE: Impact-first approach ✓',
+    en: 'VALUE: Impact-first approach ✓',
+  },
+  'vds.decoder.driven': {
+    pt: 'DRIVEN: AI-accelerated execution ✓',
+    en: 'DRIVEN: AI-accelerated execution ✓',
+  },
+  'vds.decoder.solutions': {
+    pt: 'SOLUTIONS: Production-ready delivery ✓',
+    en: 'SOLUTIONS: Production-ready delivery ✓',
+  },
+  'vds.decoder.status': {
+    pt: 'System Status: OPERATIONAL',
+    en: 'System Status: OPERATIONAL',
+  },
+  'vds.decoder.subtitle': {
+    pt: 'TECNOLOGIA GUIADA POR RESULTADO',
+    en: 'TECHNOLOGY DRIVEN BY RESULTS',
+  },
+  
+  // VDS System
+  'vds.system.title': {
+    pt: 'Pilares VDS',
+    en: 'VDS Pillars',
+  },
+  'vds.system.fullname': {
+    pt: 'Value-Driven Solutions',
+    en: 'Value-Driven Solutions',
+  },
+  'vds.system.subtitle': {
+    pt: 'Sistema operacional de entrega de valor: 6 módulos integrados que garantem resultados excepcionais',
+    en: 'Value delivery operating system: 6 integrated modules ensuring exceptional results',
+  },
+  'vds.system.footer': {
+    pt: 'Sistema pronto. Todos os módulos operacionais. Ready for deployment.',
+    en: 'System ready. All modules operational. Ready for deployment.',
+  },
+  
+  // VDS System - Value First
+  'vds.system.valueFirst.title': {
+    pt: 'Value First',
+    en: 'Value First',
+  },
+  'vds.system.valueFirst.description': {
+    pt: 'Começamos pelo resultado mensurável. Definimos KPIs, baseline e objetivos antes de escrever a primeira linha de código.',
+    en: 'We start with measurable results. We define KPIs, baseline and objectives before writing the first line of code.',
+  },
+  'vds.system.valueFirst.code': {
+    pt: `export const valueFirst = () => {\n  return measureImpact() \n    && defineKPIs();\n}`,
+    en: `export const valueFirst = () => {\n  return measureImpact() \n    && defineKPIs();\n}`,
+  },
+  
+  // VDS System - Velocity with Control
+  'vds.system.velocityControl.title': {
+    pt: 'Velocity with Control',
+    en: 'Velocity with Control',
+  },
+  'vds.system.velocityControl.description': {
+    pt: 'IA acelera o desenvolvimento em até 70%. Processo rigoroso garante que a velocidade não comprometa a qualidade.',
+    en: 'AI accelerates development by up to 70%. Rigorous process ensures speed doesn\'t compromise quality.',
+  },
+  'vds.system.velocityControl.code': {
+    pt: `export const velocityControl = () => {\n  return AI.accelerate() \n    && Process.validate();\n}`,
+    en: `export const velocityControl = () => {\n  return AI.accelerate() \n    && Process.validate();\n}`,
+  },
+  
+  // VDS System - Validated Delivery
+  'vds.system.validatedDelivery.title': {
+    pt: 'Validated Delivery',
+    en: 'Validated Delivery',
+  },
+  'vds.system.validatedDelivery.description': {
+    pt: 'Framework próprio de QA e validação. Cada entrega passa por testes rigorosos e validação assistida por IA.',
+    en: 'Proprietary QA and validation framework. Every delivery goes through rigorous testing and AI-assisted validation.',
+  },
+  'vds.system.validatedDelivery.code': {
+    pt: `export const validatedDelivery = () => {\n  return QA.test() \n    && Framework.validate();\n}`,
+    en: `export const validatedDelivery = () => {\n  return QA.test() \n    && Framework.validate();\n}`,
+  },
+  
+  // VDS System - Secure by Design
+  'vds.system.secureDesign.title': {
+    pt: 'Secure by Design',
+    en: 'Secure by Design',
+  },
+  'vds.system.secureDesign.description': {
+    pt: 'Segurança e compliance desde o início. Boas práticas e validações em cada etapa para ambientes críticos.',
+    en: 'Security and compliance from the start. Best practices and validations at every stage for critical environments.',
+  },
+  'vds.system.secureDesign.code': {
+    pt: `export const secureDesign = () => {\n  return Compliance.check() \n    && Security.enforce();\n}`,
+    en: `export const secureDesign = () => {\n  return Compliance.check() \n    && Security.enforce();\n}`,
+  },
+  
+  // VDS System - Scale Ready
+  'vds.system.scaleReady.title': {
+    pt: 'Scale Ready',
+    en: 'Scale Ready',
+  },
+  'vds.system.scaleReady.description': {
+    pt: 'Arquitetura cloud-native preparada para crescer. Soluções escaláveis que evoluem com seu negócio.',
+    en: 'Cloud-native architecture ready to grow. Scalable solutions that evolve with your business.',
+  },
+  'vds.system.scaleReady.code': {
+    pt: `export const scaleReady = () => {\n  return Cloud.provision() \n    && Architecture.optimize();\n}`,
+    en: `export const scaleReady = () => {\n  return Cloud.provision() \n    && Architecture.optimize();\n}`,
+  },
+  
+  // VDS System - VDS Framework
+  'vds.system.vdsFramework.title': {
+    pt: 'VDS Framework',
+    en: 'VDS Framework',
+  },
+  'vds.system.vdsFramework.description': {
+    pt: 'Framework proprietário de desenvolvimento, QA e validação assistida por IA. Acelera entregas mantendo qualidade.',
+    en: 'Proprietary development, QA and AI-assisted validation framework. Accelerates delivery while maintaining quality.',
+  },
+  'vds.system.vdsFramework.code': {
+    pt: `export const vdsFramework = () => {\n  return Dev.accelerate() \n    && QA.validate() \n    && AI.assist();\n}`,
+    en: `export const vdsFramework = () => {\n  return Dev.accelerate() \n    && QA.validate() \n    && AI.assist();\n}`,
+  },
+  
+  // About - Value Anchor
+  'about.value.anchor': {
+    pt: 'Nosso ponto de partida é sempre o valor: eficiência, receita, redução de risco, qualidade e velocidade.',
+    en: 'Our starting point is always value: efficiency, revenue, risk reduction, quality and speed.',
   },
 };
 

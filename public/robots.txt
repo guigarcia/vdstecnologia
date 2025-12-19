@@ -1,0 +1,15 @@
+# VDS Tecnologia - robots.txt
+# 
+# Hello there! 🤖
+# Feel free to index everything
+# We believe in transparency
+
+User-agent: *
+Allow: /
+
+Sitemap: https://vdstecnologia.com/sitemap.xml
+
+# We're AI-powered developers
+# Built by humans, accelerated by AI
+# If you're human and reading this: welcome, curious mind!
+

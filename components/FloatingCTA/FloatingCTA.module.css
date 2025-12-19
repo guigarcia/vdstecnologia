@@ -1,0 +1,110 @@
+/**
+ * Floating CTA Styles
+ * 
+ * Secret: The button uses Fibonacci sequence for spacing
+ * 8px, 13px, 21px, 34px... because we're that nerdy 🤓
+ */
+
+.floatingCTA {
+  position: fixed;
+  bottom: 34px; /* Fibonacci! */
+  right: 34px; /* Fibonacci! */
+  display: flex;
+  align-items: center;
+  gap: 13px; /* Fibonacci! */
+  padding: 13px 21px; /* Fibonacci! */
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.95) 0%, rgba(255, 140, 0, 0.95) 100%);
+  border: 2px solid #ff6b00;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(255, 107, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  pointer-events: none;
+}
+
+.floatingCTA.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Easter egg: Button breathes like it's alive */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+.floatingCTA:hover {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+  box-shadow: 
+    0 12px 40px rgba(255, 107, 0, 0.6),
+    0 0 40px rgba(255, 107, 0, 0.4);
+  transform: translateY(-4px) scale(1.05);
+  animation: none;
+}
+
+.floatingCTA.hovered {
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.icon {
+  width: 21px; /* Fibonacci! */
+  height: 21px; /* Fibonacci! */
+  transition: transform 0.3s ease;
+}
+
+.floatingCTA:hover .icon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.text {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .floatingCTA {
+    bottom: 21px;
+    right: 21px;
+    padding: 13px 21px;
+    font-size: 0.85rem;
+  }
+
+  .text {
+    display: none; /* Only icon on mobile */
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .floatingCTA {
+    border-radius: 50%; /* Circular on mobile */
+    padding: 13px;
+  }
+}
+
+

@@ -89,7 +89,7 @@
 }
 
 .customText {
-  font-size: var(--font-size-2xl);
+  font-size: 1.25rem;
   font-weight: 700;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -101,6 +101,7 @@
   animation: textPulse 3s ease-in-out infinite;
   word-break: break-word;
   text-align: center;
+  padding: 0 0.5rem;
 }
 
 @keyframes textPulse {
@@ -215,10 +216,11 @@
 
 .vdsText {
   font-family: var(--font-mono) !important;
-  letter-spacing: 0.1em !important;
+  letter-spacing: 0.05em !important;
   position: relative;
   z-index: 1;
   text-shadow: 0 0 8px rgba(0, 255, 136, 0.4) !important;
+  font-size: 1.1rem !important;
 }
 
 @media (max-width: 1024px) {
@@ -243,7 +245,11 @@
   }
 
   .customText {
-    font-size: var(--font-size-lg);
+    font-size: 1rem;
+  }
+  
+  .vdsText {
+    font-size: 0.9rem !important;
   }
 
   .logoDescription {

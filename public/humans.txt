@@ -1,0 +1,66 @@
+/* TEAM */
+
+  Role: AI-Powered Development Team
+  Site: https://vdstecnologia.com
+  Location: Brazil 🇧🇷
+  
+  We're a team of senior developers who embraced AI
+  Not to replace us, but to make us 10x more productive
+  
+  Fun fact: This entire site was built using:
+  - Cursor IDE (our favorite toy)
+  - Claude & GPT-4 (our AI partners)
+  - Next.js 15 + TypeScript (our weapons of choice)
+  - Pure CSS (no frameworks, just skill)
+  - Lots of coffee ☕ (the real MVP)
+
+/* SITE */
+
+  Standards: HTML5, CSS3, ES2024
+  Components: React 19, Next.js 15
+  Language: TypeScript (because types save lives)
+  IDE: Cursor (heavy users, proud of it)
+  AI: Claude, GPT-4, Gemini, DeepSeek
+  
+/* TECH PHILOSOPHY */
+
+  1. Value First - Always start with business impact
+  2. Velocity with Control - Fast but not reckless  
+  3. Validated Delivery - Test everything
+  4. Secure by Design - No shortcuts on security
+  5. Scale Ready - Think big from day one
+  6. VDS Framework - Our secret sauce
+
+/* THANKS */
+
+  To every developer who:
+  - Reads source code
+  - Values clean architecture
+  - Appreciates good design
+  - Uses AI as a tool, not a crutch
+  
+  You're our kind of people 🤝
+  
+/* HIRING */
+
+  Yes, we're always looking for talent!
+  If you:
+  - Found this file organically
+  - Read this far
+  - Smiled at least once
+  
+  Then send us a message. Seriously.
+  contato@vdstecnologia.com.br
+  
+  Subject line: "I found humans.txt"
+  (We'll know you're one of us)
+
+/* EOF */
+  
+  "Clean code, clear architecture, maximum velocity"
+   
+   - VDS Team, 2024
+   
+   P.S. If you found this file, you're already ahead of 99% of people
+   Let's talk: contato@vdstecnologia.com.br
+

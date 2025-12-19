@@ -1,0 +1,611 @@
+/**
+ * VDSSystem Styles
+ * 
+ * Cyberpunk system monitor aesthetic
+ * Gradient background for depth, neon accents for emphasis
+ */
+
+.vdsSystem {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 5, 0, 0.95) 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* System Header */
+.systemHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.systemHeader.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.headerTop {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.systemInfo {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+}
+
+.systemName {
+  color: #ff6b00;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 107, 0, 0.8);
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.status {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ledGreen {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.statusOnline {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.modules {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.moduleCount {
+  color: #00d4ff;
+  font-weight: bold;
+}
+
+.uptime {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.uptimeValue {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.headerContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.titleGradient {
+  background: linear-gradient(135deg, #ff6b00 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fullName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Connection Lines */
+.connectionLines {
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.connectionLine {
+  stroke: url(#lineGradient);
+  stroke-width: 2;
+  fill: none;
+  filter: url(#glow);
+  animation: lineFlow 3s ease-in-out infinite;
+}
+
+@keyframes lineFlow {
+  0%, 100% {
+    stroke-dasharray: 10 5;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 10 5;
+    stroke-dashoffset: 15;
+  }
+}
+
+.dataParticle {
+  fill: #ff6b00;
+  filter: url(#glow);
+}
+
+/* Modules Grid */
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.modulesGrid.visible {
+  opacity: 1;
+}
+
+/* Module Card */
+.moduleCard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 10, 0, 0.8) 100%);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.moduleCard.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.moduleCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255, 107, 0, 0.8);
+  box-shadow: 
+    0 20px 60px rgba(255, 107, 0, 0.3),
+    0 0 40px rgba(255, 107, 0, 0.2),
+    inset 0 0 40px rgba(255, 107, 0, 0.05);
+}
+
+.moduleCard.active {
+  border-color: rgba(255, 107, 0, 1);
+  box-shadow: 
+    0 20px 60px rgba(255, 107, 0, 0.4),
+    0 0 60px rgba(255, 107, 0, 0.3),
+    inset 0 0 60px rgba(255, 107, 0, 0.1);
+}
+
+/* Module Header */
+.moduleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+}
+
+.moduleStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ledActive {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.moduleId {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.moduleMetric {
+  display: flex;
+  gap: 0.25rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.metricLabel {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.metricValue {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+/* Icon */
+.iconWrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.moduleCard:hover .iconWrapper {
+  transform: rotateY(360deg);
+  border-width: 3px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.iconGlow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.moduleCard:hover .iconGlow {
+  opacity: 0.6;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Module Content */
+.moduleTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.moduleDescription {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Code Snippet */
+.codeSnippet {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.moduleCard:hover .codeSnippet {
+  border-color: rgba(255, 107, 0, 0.5);
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.codeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fileName {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: auto;
+}
+
+.codeContent {
+  padding: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #00ff88;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.codeContent code {
+  text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+/* Scan Effect */
+.scanEffect {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 107, 0, 0.2) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.moduleCard:hover .scanEffect {
+  opacity: 1;
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* System Footer */
+.systemFooter {
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.6s;
+}
+
+.systemFooter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.footerText {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.prompt {
+  color: #ff6b00;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Cyber Grid Background */
+.cyberGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .systemInfo {
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+  }
+
+  .modulesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vdsSystem {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .systemInfo {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .divider {
+    display: none; /* Hide dividers on mobile */
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .fullName {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .modulesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .moduleCard {
+    padding: 1.5rem;
+  }
+
+  .moduleTitle {
+    font-size: 1.25rem;
+  }
+
+  .moduleDescription {
+    font-size: 0.9rem;
+  }
+
+  .codeSnippet {
+    font-size: 0.8rem;
+  }
+
+  .connectionLines {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .systemInfo {
+    font-size: 0.65rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .moduleCard {
+    padding: 1.25rem;
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .codeContent {
+    font-size: 0.7rem;
+  }
+}
+

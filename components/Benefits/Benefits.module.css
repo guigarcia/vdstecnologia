@@ -4,11 +4,8 @@
   display: flex;
   align-items: center;
   padding: var(--spacing-3xl) 0;
-  background: 
-    radial-gradient(ellipse 1400px 900px at 50% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 70%),
-    radial-gradient(circle 900px at 10% 20%, rgba(255, 107, 53, 0.12) 0%, transparent 70%),
-    radial-gradient(circle 700px at 90% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 70%),
-    var(--color-bg-primary);
+  background: #000000;
+  border-top: 1px solid rgba(255, 107, 0, 0.2);
   z-index: 1;
   overflow: hidden;
   scroll-snap-align: start;
@@ -18,6 +15,46 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+}
+
+.terminalLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.prompt {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.command {
+  color: #00ff88;
+}
+
+.terminalLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.prompt {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.command {
+  color: #00ff88;
 }
 
 .header {
@@ -40,6 +77,19 @@
   color: var(--color-text-primary);
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.fullName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
 }
 
 .titleGradient {

@@ -1,0 +1,208 @@
+/**
+ * AIStackGrid Styles
+ * 
+ * Grid layout with 1px gaps for technical blueprint aesthetic
+ * Hover transitions set to 300ms for optimal perceived responsiveness
+ */
+
+.aiStack {
+  position: relative;
+  padding: 4rem 0;
+  background: #000000;
+  border-top: 1px solid rgba(255, 107, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.terminalLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.prompt {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.command {
+  color: #00ff88;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.2em;
+}
+
+.titleGradient {
+  background: linear-gradient(135deg, #ff6b00 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: rgba(255, 107, 0, 0.2);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.grid.visible {
+  opacity: 1;
+}
+
+.gridItem {
+  background: #000000;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: itemAppear 0.6s ease-out forwards;
+}
+
+@keyframes itemAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gridItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gridItem:hover {
+  background: rgba(255, 107, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.gridItem:hover::before {
+  opacity: 1;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.toolName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+}
+
+.category {
+  font-size: 0.75rem;
+  color: #ff6b00;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Courier New', monospace;
+}
+
+.footer {
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 107, 0, 0.05);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.4s;
+}
+
+.footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footerPrompt {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.footerText {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aiStack {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .gridItem {
+    padding: 1rem;
+  }
+
+  .toolName {
+    font-size: 0.95rem;
+  }
+}
+

@@ -1,3 +1,11 @@
+/**
+ * Hero Component - First Impression
+ * 
+ * Bold title, clear value proposition, immediate CTA
+ * Particle system uses physics calculations for realistic movement
+ * Glitch effect applied to title for cyberpunk aesthetic
+ */
+
 'use client';
 
 import React from 'react';
@@ -11,6 +19,7 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
   const { t } = useLanguage();
+  
   const handleContactClick = () => {
     const element = document.querySelector('#contato');
     if (element) {

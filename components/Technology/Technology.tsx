@@ -25,6 +25,8 @@ export default function Technology() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [matrixChars, setMatrixChars] = useState<string[][]>([]);
+  const [cpuStat, setCpuStat] = useState(70);
+  const [memStat, setMemStat] = useState(45);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,6 +63,12 @@ export default function Technology() {
       chars.push(column);
     }
     setMatrixChars(chars);
+  }, []);
+
+  useEffect(() => {
+    // Set random stats on mount
+    setCpuStat(Math.floor(65 + Math.random() * 10));
+    setMemStat(Math.floor(40 + Math.random() * 15));
   }, []);
 
   useEffect(() => {
@@ -123,8 +131,8 @@ export default function Technology() {
             </div>
             <span className={styles.consoleTitle}>tech-stack.sh</span>
             <div className={styles.systemStats}>
-              <span className={styles.stat}>CPU: {Math.floor(65 + Math.random() * 10)}%</span>
-              <span className={styles.stat}>MEM: {Math.floor(40 + Math.random() * 15)}%</span>
+              <span className={styles.stat}>CPU: {cpuStat}%</span>
+              <span className={styles.stat}>MEM: {memStat}%</span>
             </div>
           </div>
 

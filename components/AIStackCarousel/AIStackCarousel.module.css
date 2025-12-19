@@ -1,0 +1,276 @@
+.aiStack {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(180deg, rgba(10, 5, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 0.2em;
+}
+
+.titleGradient {
+  background: linear-gradient(135deg, #ff6b00 0%, #00d4ff 50%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(255, 107, 0, 0.5);
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.6));
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.grid.visible {
+  opacity: 1;
+}
+
+.card {
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  animation: cardAppear 0.6s ease-out forwards;
+}
+
+@keyframes cardAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cardInner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 10, 0, 0.9) 100%);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 107, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.card:hover .cardInner {
+  transform: translateY(-8px);
+  border-color: var(--tool-color, #ff6b00);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    0 0 30px var(--tool-color, rgba(255, 107, 0, 0.4));
+}
+
+.cardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.category {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 8px currentColor;
+}
+
+.logoWrapper {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 1.25rem;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.card:hover .logoWrapper {
+  border-color: var(--tool-color, rgba(255, 107, 0, 0.5));
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 30px var(--tool-color, rgba(255, 107, 0, 0.3));
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.2);
+  transition: all 0.4s ease;
+}
+
+.card:hover .logo {
+  filter: brightness(1.5);
+}
+
+.toolName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.card:hover .toolName {
+  color: var(--tool-color, #ff6b00);
+  text-shadow: 0 0 20px var(--tool-color, rgba(255, 107, 0, 0.6));
+}
+
+.cardGlow {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  opacity: 0;
+  animation: glowRotate 4s linear infinite;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .cardGlow {
+  opacity: 0.4;
+}
+
+@keyframes glowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aiStack {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .cardInner {
+    padding: 1.5rem 1rem;
+  }
+
+  .logoWrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .toolName {
+    font-size: 1rem;
+  }
+
+  .category {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cardInner {
+    padding: 1.25rem 1rem;
+  }
+
+  .logoWrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .toolName {
+    font-size: 0.95rem;
+  }
+}

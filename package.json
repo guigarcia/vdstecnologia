@@ -1,7 +1,10 @@
 {
   "name": "vdstecnologia",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "description": "VDS Tecnologia - Value-Driven Solutions. AI-powered development with attitude. Built with Next.js, TypeScript, and lots of easter eggs 🥚",
+  "author": "VDS Tecnologia <contato@vdstecnologia.com.br>",
+  "homepage": "https://vdstecnologia.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

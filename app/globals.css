@@ -1,5 +1,19 @@
 /* ========================================
    VDS TECNOLOGIA - CYBERPUNK DESIGN SYSTEM
+   ========================================
+   
+   Design system built with pure CSS (no frameworks)
+   Optimized for performance and accessibility
+   
+   Color palette:
+   - Orange (#FF6B35): Primary accent
+   - Cyan (#00F5FF): Secondary accent  
+   - Green (#00FF88): Success states
+   - Black (#0a0a0a): Base background
+   
+   Architecture: CSS custom properties for theming
+   Performance: GPU-accelerated transforms only
+   Accessibility: Semantic HTML + ARIA labels
    ======================================== */
 
 :root {

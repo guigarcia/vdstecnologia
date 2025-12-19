@@ -57,6 +57,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  // Console message for curious developers
+  if (typeof window !== 'undefined') {
+    console.log('%c🚀 VDS Tecnologia', 'color: #ff6b00; font-size: 24px; font-weight: bold;');
+    console.log('%cValue-Driven Solutions', 'color: #00d4ff; font-size: 16px;');
+    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #ff6b00;');
+    console.log('%c👋 Hello, curious developer!', 'color: #00ff88; font-size: 14px;');
+    console.log('%c', '');
+    console.log('%c🛠️ Tech Stack:', 'color: #00d4ff; font-weight: bold;');
+    console.log('%c  • Next.js 15 + TypeScript', 'color: #ffffff;');
+    console.log('%c  • React 19', 'color: #ffffff;');
+    console.log('%c  • Pure CSS (no frameworks)', 'color: #ffffff;');
+    console.log('%c  • Built with AI assistance', 'color: #ffffff;');
+    console.log('%c', '');
+    console.log('%c💡 Interactive Features:', 'color: #ffdd00; font-weight: bold;');
+    console.log('%c  • Contact Terminal with commands (type "help")', 'color: #ffffff;');
+    console.log('%c  • Keyboard shortcuts (Ctrl+Shift+K)', 'color: #ffffff;');
+    console.log('%c  • Check /humans.txt for more info', 'color: #ffffff;');
+    console.log('%c', '');
+    console.log('%c📬 Let\'s work together:', 'color: #ff6b00; font-weight: bold;');
+    console.log('%c  contato@vdstecnologia.com.br', 'color: #00ff88;');
+    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #ff6b00;');
+  }
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body suppressHydrationWarning>
