@@ -48,25 +48,19 @@ export default function IntroSequence() {
     // Stage 0: Boot sequence
     if (stage === 0) {
       const lines = [
-        '> VDS SYSTEM BOOT SEQUENCE v2.0.1',
+        '> VDS SYSTEM BOOT v2.0.1',
         '> BIOS: OK | RAM: OK | CPU: OK',
         '> ',
-        '> Initializing core protocols...',
-        '> [░░░░░░░░░░░░░░░░░░░░] 0%',
-        '> [████░░░░░░░░░░░░░░░░] 20% - Loading AI engines',
-        '> [████████░░░░░░░░░░░░] 40% - Mounting cloud infrastructure',
-        '> [████████████░░░░░░░░] 60% - Decrypting VALUE protocols',
-        '> [████████████████░░░░] 80% - Activating DRIVEN systems',
-        '> [████████████████████] 100% - SOLUTIONS framework deployed',
+        '> Initializing protocols...',
+        '> [████░░░░░░░░░░░░░░░░] 20%',
+        '> [████████░░░░░░░░░░░░] 40%',
+        '> [████████████░░░░░░░░] 60%',
+        '> [████████████████░░░░] 80%',
+        '> [████████████████████] 100%',
         '> ',
-        '> All systems operational',
-        '> Decoding identity...',
+        '> Decoding: V.A.L.U.E - D.R.I.V.E.N - S.O.L.U.T.I.O.N.S',
         '> ',
-        '> V . A . L . U . E',
-        '> D . R . I . V . E . N', 
-        '> S . O . L . U . T . I . O . N . S',
-        '> ',
-        '> System ready. Welcome aboard.',
+        '> System ready.',
       ];
 
       let index = 0;

@@ -185,7 +185,11 @@ export default function VDSSystem() {
 
                 {/* Module Icon - With that sweet glow effect */}
                 <div className={styles.iconWrapper} style={{ borderColor: module.color }}>
-                  {Icon && <Icon className={styles.icon} style={{ color: module.color }} />}
+                  {Icon && (
+                    <div style={{ color: module.color }}>
+                      <Icon className={styles.icon} />
+                    </div>
+                  )}
                   <div className={styles.iconGlow} style={{ background: `radial-gradient(circle, ${module.color}40 0%, transparent 70%)` }}></div>
                 </div>
 
